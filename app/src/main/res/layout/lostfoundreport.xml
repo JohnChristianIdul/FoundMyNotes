@@ -7,6 +7,22 @@
     android:background="@drawable/lostfoundreport" >
 
     <Button
+        android:id="@+id/btnLost"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/btnFound"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="389dp" />
+
+    <Button
         android:id="@+id/btnHome2"
         android:layout_width="84dp"
         android:layout_height="90dp"
