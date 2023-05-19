@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lostreport">
+
+    <Button
+        android:id="@+id/btnHome3"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnStudy3"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnReport3"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnProfile3"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/Image"
+        android:layout_width="205dp"
+        android:layout_height="169dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="466dp" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="244dp"
+        android:layout_height="24dp"
+        android:background="@drawable/foredittext"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:outlineProvider="background"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="244dp"
+        android:layout_height="24dp"
+        android:background="@drawable/foredittext"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:outlineProvider="background"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="312dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="244dp"
+        android:layout_height="24dp"
+        android:background="@drawable/foredittext"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:outlineProvider="background"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="234dp"
+        android:layout_height="26dp"
+        android:background="@drawable/foredittext"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:outlineProvider="background"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="244dp"
+        android:layout_height="24dp"
+        android:background="@drawable/foredittext"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="text"
+        android:outlineProvider="background"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="374dp" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="275dp"
+        android:layout_height="173dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="466dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
