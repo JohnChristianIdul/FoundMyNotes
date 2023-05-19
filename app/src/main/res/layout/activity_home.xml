@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home"
+    android:background="@drawable/home">
+
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnStudy"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnReport"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="223dp"
+        android:background="@drawable/roundedrectangle"
+        android:clipToOutline="true"
+        app:srcCompat="@drawable/lost_and_found_button"
+        tools:clickable="true"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="164dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="151dp"
+        android:layout_height="223dp"
+        android:background="@drawable/roundedrectangle"
+        android:clipToOutline="true"
+        app:srcCompat="@drawable/notes_and_flashcards_button"
+        tools:clickable="true"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="164dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="151dp"
+        android:layout_height="221dp"
+        android:background="@drawable/roundedrectangle"
+        android:clipToOutline="true"
+        tools:clickable="true"
+        app:srcCompat="@drawable/study_sessions_button"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="410dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

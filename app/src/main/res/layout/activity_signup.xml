@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup"
+    android:background="@drawable/sign_up">
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="1070px"
+        android:layout_height="150px"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="50px"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="259dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="1070px"
+        android:layout_height="150px"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        android:paddingLeft="50px"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="1070px"
+        android:layout_height="150px"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="50px"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword3"
+        android:layout_width="1070px"
+        android:layout_height="150px"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:paddingLeft="50px"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="492dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/black"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="570dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signin"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="783dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

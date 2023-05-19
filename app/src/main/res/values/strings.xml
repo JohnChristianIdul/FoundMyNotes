@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FoundMyNotes</string>
+    <string name="getstarted">Get Started</string>
+    <string name="signin">Sign In</string>
+    <string name="email">Email Address</string>
+    <string name="remember">Remember Me</string>
+    <string name="forgotpass">Forgot Password?</string>
+    <string name="donthaveaccount">Don\'t have an account?</string>
+    <string name="signup">Sign Up</string>
+</resources>
