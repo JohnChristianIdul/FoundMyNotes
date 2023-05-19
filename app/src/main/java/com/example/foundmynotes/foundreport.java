@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class lostreport extends AppCompatActivity implements View.OnClickListener{
+public class foundreport extends AppCompatActivity implements View.OnClickListener{
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -30,7 +30,7 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.createlostreport);
+        setContentView(R.layout.createfoundreport);
 
         btnHome= findViewById(R.id.btnHome3);
         btnStudy2= findViewById(R.id.btnStudy3);

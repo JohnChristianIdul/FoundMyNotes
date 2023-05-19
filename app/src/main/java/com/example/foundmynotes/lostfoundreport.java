@@ -8,49 +8,55 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class lostfoundreport extends AppCompatActivity {
+public class lostfoundreport extends AppCompatActivity implements View.OnClickListener{
 
-    Button btnHome,btnStudy2,btnReport2,btnProfile2;
+    Button Home2,Study2,Report2,Profile2,btnLost,btnFound;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lostfoundreport);
 
-        btnHome= findViewById(R.id.btnHome);
-        btnStudy2= findViewById(R.id.btnStudy2);
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(), Login.class);
-                startActivity(login);
-            }
-        });
-
-        btnStudy2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(), studyPage.class);
-                startActivity(login);
-            }
-        });
-
-        btnReport2= findViewById(R.id.btnReport2);
-        btnReport2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(), lostfoundreport.class);
-                startActivity(login);
-            }
-        });
-
-        btnProfile2= findViewById(R.id.btnProfile2);
-        btnProfile2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(), lostfoundreport.class);
-                startActivity(login);
-            }
-        });
+        Home2= findViewById(R.id.Home2);
+        Home2.setOnClickListener(this);
+        Study2= findViewById(R.id.Study2);
+        Study2.setOnClickListener(this);
+        Report2= findViewById(R.id.Report2);
+        Report2.setOnClickListener(this);
+        btnLost= findViewById(R.id.btnLost);
+        btnLost.setOnClickListener(this);
+        btnFound= findViewById(R.id.btnFound);
+        btnFound.setOnClickListener(this);
+//        Profile2= findViewById(R.id.Profile2);
+//        Profile2.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.btnHome:
+                Intent intent = new Intent (this, Home.class);
+                startActivity(intent);
+                break;
+            case R.id.Study2:
+                Intent i = new Intent (this, studyPage.class);
+                startActivity(i);
+                break;
+            case R.id.Report2:
+                Intent a = new Intent (this, lostfoundreport.class);
+                startActivity(a);
+                break;
+//            case R.id.btnProfile2:
+//                Intent b= new Intent (this, lostreport.class);
+//                startActivity(b);
+//                break;
+            case R.id.btnLost:
+                Intent ab= new Intent (this, lostreport.class);
+                startActivity(ab);
+                break;
+            case R.id.btnFound:
+                Intent abc= new Intent (this, foundreport.class);
+                startActivity(abc);
+                break;
+        }
     }
 }

@@ -11,11 +11,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoundMyNotes"
         tools:targetApi="31">
+
         <activity
             android:name=".studyPage"
             android:exported="false" />
+        <activity android:name=".Home"
+            android:exported="true">
+        <intent-filter>
+            <!-- Specify the action(s) you want to handle -->
+            <action android:name="android.intent.action.VIEW" />
+            <action android:name="android.intent.action.EDIT" />
+
+            <!-- Specify the data type(s) you want to handle -->
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".Home"
+            android:name=".foundreport"
+            android:exported="false" />
+        <activity
+            android:name=".lostreport"
+            android:exported="false" />
+        <activity
+            android:name=".lostfoundreport"
             android:exported="false" />
         <activity
             android:name=".splashScreen"

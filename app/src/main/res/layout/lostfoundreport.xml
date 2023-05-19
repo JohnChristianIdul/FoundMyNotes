@@ -10,47 +10,70 @@
         android:id="@+id/btnLost"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginBottom="152dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="155dp" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnFound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnFound"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginBottom="96dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintBottom_toTopOf="@+id/Home2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnHome2"
+        android:id="@+id/Home2"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="8dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Study2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnStudy2"
+        android:id="@+id/Study2"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Report2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnReport2"
+        android:id="@+id/Report2"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="8dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Profile2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnProfile2"
+        android:id="@+id/Profile2"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="24dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

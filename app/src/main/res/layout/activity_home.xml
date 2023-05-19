@@ -11,33 +11,39 @@
         android:id="@+id/btnHome"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="56dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnStudy"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnStudy"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnReport" />
 
     <Button
         android:id="@+id/btnReport"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="20dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnProfile" />
 
     <Button
         android:id="@+id/btnProfile"
         android:layout_width="84dp"
         android:layout_height="90dp"
+        android:layout_marginEnd="4dp"
         android:alpha="0"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="780dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
