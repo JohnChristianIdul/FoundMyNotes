@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lostfoundreport" >
+
+    <Button
+        android:id="@+id/btnHome2"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnStudy2"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnReport2"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="780dp" />
+
+    <Button
+        android:id="@+id/btnProfile2"
+        android:layout_width="84dp"
+        android:layout_height="90dp"
+        android:alpha="0"
+        tools:layout_editor_absoluteX="323dp"
+        tools:layout_editor_absoluteY="780dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
