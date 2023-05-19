@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DBConnectSignin extends SQLiteOpenHelper {
+public class DBConnect extends SQLiteOpenHelper {
 
-    public DBConnectSignin(Context context) {
+    public DBConnect(Context context) {
         super(context, "user_data.db", null, 1);
     }
 
@@ -22,6 +22,7 @@ public class DBConnectSignin extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop Table if exists user");
     }
 
+    // used for sign up
     public boolean insertUserData(String email_address, String password, String name){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -36,40 +37,40 @@ public class DBConnectSignin extends SQLiteOpenHelper {
     }
 
 // can be use for update profile
-//    public boolean updateUserData(String email_address, String password, String name){
-//        SQLiteDatabase DB = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("email_address", email_address);
-//        contentValues.put("password", password);
-//        contentValues.put("name", name);
-//        Cursor cursor = DB.rawQuery("select * from user where name = ?", new String[] {name});
-//        if(cursor.getCount()>0) {
-//            long result = DB.update("user", contentValues, "name=?", new String[] {name});
-//            if(result == -1)
-//                return false;
-//            else
-//                return true;
-//        }else {
-//            return false;
-//        }
-//    }
+    public boolean updateUserData(String email_address, String password, String name){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email_address", email_address);
+        contentValues.put("password", password);
+        contentValues.put("name", name);
+        Cursor cursor = DB.rawQuery("select * from user where name = ?", new String[] {name});
+        if(cursor.getCount()>0) {
+            long result = DB.update("user", contentValues, "name=?", new String[] {name});
+            if(result == -1)
+                return false;
+            else
+                return true;
+        }else {
+            return false;
+        }
+    }
 
 //can be used for delete account
-//    public boolean deleteUserData(String email_address, String password, String name){
-//        SQLiteDatabase DB = this.getWritableDatabase();
-//        Cursor cursor = DB.rawQuery("select * from user where name = ?", new String[] {name});
-//        if(cursor.getCount()>0) {
-//            long result = DB.delete("user", "name=?", new String[] {name});
-//            if(result == -1)
-//                return false;
-//            else
-//                return true;
-//        }else {
-//            return false;
-//        }
-//    }
+    public boolean deleteUserData(String email_address, String password, String name){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("select * from user where name = ?", new String[] {name});
+        if(cursor.getCount()>0) {
+            long result = DB.delete("user", "name=?", new String[] {name});
+            if(result == -1)
+                return false;
+            else
+                return true;
+        }else {
+            return false;
+        }
+    }
 
-    //can be used for profile
+    //used for log in
     public Boolean getUserData(String email, String password){
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("select * from user where email_address=? and password =?", new String[] {email, password});
