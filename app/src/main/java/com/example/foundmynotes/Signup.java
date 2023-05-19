@@ -14,7 +14,7 @@ public class Signup extends AppCompatActivity {
     EditText name, email, password, confirm_password;
     TextView Login;
     Button SignUp;
-    DBConnectSignin DB;
+    DBConnect DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class Signup extends AppCompatActivity {
 
         SignUp = findViewById(R.id.btnSignUp);
         Login = findViewById(R.id.tfLogin);
-        DB = new DBConnectSignin(this);
+        DB = new DBConnect(this);
 
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
