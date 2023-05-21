@@ -4,94 +4,178 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
-    android:background="@drawable/home">
-
-    <Button
-        android:id="@+id/Reports1"
-        android:layout_width="143dp"
-        android:layout_height="226dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="364dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:background="@drawable/home"
+    tools:context=".Home">
 
     <Button
         android:id="@+id/btnHome"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="56dp"
+        android:layout_width="93dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="16dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnStudy"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/btnStudy"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="82dp"
+        android:layout_height="80dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReport" />
+        app:layout_constraintStart_toEndOf="@+id/btnHome"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/btnReport"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="85dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="20dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnProfile" />
+        app:layout_constraintStart_toEndOf="@+id/btnStudy"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/btnProfile"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="89dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="12dp"
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="223dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="364dp"
-        android:background="@drawable/roundedrectangle"
-        android:clipToOutline="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/lost_and_found_button"
-        tools:clickable="true" />
+        app:layout_constraintStart_toEndOf="@+id/btnReport"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="151dp"
-        android:layout_height="223dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="364dp"
+        android:layout_width="193dp"
+        android:layout_height="264dp"
+        android:layout_marginStart="206dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="490dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/notes_and_flashcards_button"
         tools:clickable="true" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="151dp"
-        android:layout_height="221dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="108dp"
+        android:id="@+id/imageView"
+        android:layout_width="193dp"
+        android:layout_height="264dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginBottom="490dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/lost_and_found_button"
+        tools:clickable="true" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="193dp"
+        android:layout_height="264dp"
+        android:layout_marginBottom="204dp"
+        android:background="@drawable/roundedrectangle"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/study_sessions_button"
         tools:clickable="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="82dp" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageView3,imageView,imageView2" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageView2,imageView,imageView3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="56dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="320dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="395dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="606dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="342dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="109dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="299dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

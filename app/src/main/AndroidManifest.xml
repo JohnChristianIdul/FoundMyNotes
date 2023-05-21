@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,14 +14,17 @@
         android:theme="@style/Theme.FoundMyNotes"
         tools:targetApi="31">
         <activity
+            android:name=".Reminders"
+            android:exported="false" />
+        <activity
             android:name=".reports"
             android:exported="false" />
         <activity
             android:name=".studyPage"
             android:exported="false" />
-        <activity android:name=".Home"
-            android:exported="true">
-        </activity>
+        <activity
+            android:name=".Home"
+            android:exported="true"></activity>
         <activity
             android:name=".foundreport"
             android:exported="false" />
