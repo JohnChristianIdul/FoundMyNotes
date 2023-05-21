@@ -24,7 +24,7 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
             image.setImageURI(imageUri);
         }
     }
-    Button btnHome,btnStudy2,btnReport2,btnProfile2,image;
+    Button a1,b1,c1,d1,Image1;
     private static final int PICK_IMAGE_REQUEST = 1;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,17 +32,20 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createlostreport);
 
-        btnHome= findViewById(R.id.btnHome3);
-        btnStudy2= findViewById(R.id.btnStudy3);
-        btnReport2= findViewById(R.id.btnReport3);
-        btnProfile2= findViewById(R.id.btnProfile3);
-
-        image = findViewById(R.id.Image);
-        image.setOnClickListener(new View.OnClickListener() {
+        a1= findViewById(R.id.a1);
+        a1.setOnClickListener(this);
+        b1= findViewById(R.id.b1);
+        b1.setOnClickListener(this);
+        c1= findViewById(R.id.c1);
+        c1.setOnClickListener(this);
+//        btnProfile2= findViewById(R.id.d);
+//        btnProfile2.setOnClickListener(this);
+        Image1 = findViewById(R.id.Image1);
+        Image1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, PICK_IMAGE_REQUEST);
+            public void onClick(View view) {
+                Intent intent1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent1, PICK_IMAGE_REQUEST);
             }
         });
 
@@ -51,26 +54,23 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnHome:
+            case R.id.a1:
                 Intent intent = new Intent (this, Home.class);
                 startActivity(intent);
                 break;
-            case R.id.Study2:
+            case R.id.b1:
                 Intent i = new Intent (this, studyPage.class);
                 startActivity(i);
                 break;
-            case R.id.Report2:
+            case R.id.c1:
                 Intent a = new Intent (this, lostfoundreport.class);
                 startActivity(a);
                 break;
-            case R.id.Profile2:
+            case R.id.d1:
                 Intent b= new Intent (this, lostreport.class);
                 startActivity(b);
                 break;
-            case R.id.image:
-                Intent intent1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent1, PICK_IMAGE_REQUEST);
-                break;
+
         }
     }
 }

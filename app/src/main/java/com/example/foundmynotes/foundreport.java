@@ -18,13 +18,11 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri imageUri = data.getData();
-            // Perform further processing or upload operations with the selected image URI
-            // For example, you can display the image in an ImageView or upload it to a server.
             ImageView image = findViewById(R.id.image);
             image.setImageURI(imageUri);
         }
     }
-    Button btnHome,btnStudy2,btnReport2,btnProfile2,image;
+    Button a,b,c,d,image;
     private static final int PICK_IMAGE_REQUEST = 1;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -32,44 +30,43 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createfoundreport);
 
-        btnHome= findViewById(R.id.btnHome3);
-        btnStudy2= findViewById(R.id.btnStudy3);
-        btnReport2= findViewById(R.id.btnReport3);
-        btnProfile2= findViewById(R.id.btnProfile3);
-
-        image = findViewById(R.id.Image);
+        a= findViewById(R.id.a1);
+        a.setOnClickListener(this);
+        b= findViewById(R.id.b1);
+        b.setOnClickListener(this);
+        c= findViewById(R.id.c1);
+        c.setOnClickListener(this);
+//        d= findViewById(R.id.d);
+//        d.setOnClickListener(this);
+        image = findViewById(R.id.Image1);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, PICK_IMAGE_REQUEST);
+            public void onClick(View view) {
+                Intent intent1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent1, PICK_IMAGE_REQUEST);
             }
         });
-
     }
+
 
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnHome:
+            case R.id.a1:
                 Intent intent = new Intent (this, Home.class);
                 startActivity(intent);
                 break;
-            case R.id.Study2:
+            case R.id.b1:
                 Intent i = new Intent (this, studyPage.class);
                 startActivity(i);
                 break;
-            case R.id.Report2:
+            case R.id.c1:
                 Intent a = new Intent (this, lostfoundreport.class);
                 startActivity(a);
                 break;
-            case R.id.Profile2:
+            case R.id.d1:
                 Intent b= new Intent (this, lostreport.class);
                 startActivity(b);
-                break;
-            case R.id.image:
-                Intent intent1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent1, PICK_IMAGE_REQUEST);
                 break;
         }
     }

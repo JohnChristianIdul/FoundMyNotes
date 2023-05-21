@@ -17,15 +17,6 @@
             android:exported="false" />
         <activity android:name=".Home"
             android:exported="true">
-        <intent-filter>
-            <!-- Specify the action(s) you want to handle -->
-            <action android:name="android.intent.action.VIEW" />
-            <action android:name="android.intent.action.EDIT" />
-
-            <!-- Specify the data type(s) you want to handle -->
-            <category android:name="android.intent.category.DEFAULT" />
-            <data android:mimeType="text/plain" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".foundreport"
