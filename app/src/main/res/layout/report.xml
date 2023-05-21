@@ -13,5 +13,157 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/lostlist" />
+        android:background="@drawable/lostlist" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/lostlist"
+            tools:context=".Home">
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="@null"/>
+
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.871"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone7"/>
+
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.875"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView14"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone6"/>
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="52dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView16"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView13"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone5"/>
+
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="84dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="16dp"
+                android:alpha="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/btnReport"
+                android:layout_width="84dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="4dp"
+                android:alpha="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnProfile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/btnStudy"
+                android:layout_width="84dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="16dp"
+                android:alpha="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnReport"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/btnReport2"
+                android:layout_width="84dp"
+                android:layout_height="90dp"
+                android:alpha="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnStudy"
+                app:layout_constraintHorizontal_bias="0.717"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="208dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.875"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone4"/>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="208dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone1"/>
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView12"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone2"/>
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="155dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.875"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                tools:srcCompat="@drawable/phone"
+                android:contentDescription="Phone3"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

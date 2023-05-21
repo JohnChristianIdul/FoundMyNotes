@@ -33,7 +33,7 @@ public class lostfoundreport extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnHome:
+            case R.id.Home2:
                 Intent intent = new Intent (this, Home.class);
                 startActivity(intent);
                 break;
