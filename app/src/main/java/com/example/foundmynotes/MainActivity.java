@@ -10,13 +10,12 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button btngetstarted;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btngetstarted= findViewById(R.id.btngetstarted);
+        btngetstarted = findViewById(R.id.btngetstarted);
 
         btngetstarted.setOnClickListener(new View.OnClickListener() {
             @Override
