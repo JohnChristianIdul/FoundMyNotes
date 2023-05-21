@@ -8,7 +8,7 @@
     android:background="@drawable/home">
 
     <Button
-        android:id="@+id/btnHome2"
+        android:id="@+id/Reports1"
         android:layout_width="143dp"
         android:layout_height="226dp"
         android:layout_marginStart="44dp"
