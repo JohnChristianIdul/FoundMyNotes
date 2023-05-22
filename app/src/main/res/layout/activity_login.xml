@@ -8,35 +8,21 @@
     tools:context=".Login">
 
 
-    <EditText
-        android:id="@+id/tf_password_login"
-        android:layout_width="313dp"
-        android:layout_height="53dp"
-        android:background="@drawable/textfield"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:paddingLeft="50px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.617"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
-
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="228dp"
-        android:layout_marginTop="362dp"
-        android:layout_marginBottom="429dp"
-        android:text="@string/forgotpass"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="611dp"
+        android:text="@string/signin"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfemail_address_login"
@@ -53,44 +39,24 @@
         android:paddingLeft="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="167dp"
-        android:layout_marginEnd="287dp"
-        android:layout_marginBottom="611dp"
-        android:text="@string/signin"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+    <EditText
+        android:id="@+id/tf_password_login"
+        android:layout_width="313dp"
+        android:layout_height="53dp"
+        android:background="@drawable/textfield"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingLeft="50px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSignIn"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="434dp"
-        android:layout_marginBottom="328dp"
-        android:background="@drawable/button"
-        android:backgroundTint="@color/black"
-        android:text="@string/signin"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintVertical_bias="0.369" />
 
     <CheckBox
         android:id="@+id/cbRemember"
@@ -105,10 +71,36 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="362dp"
+        android:layout_marginBottom="429dp"
+        android:text="@string/forgotpass"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="434dp"
+        android:layout_marginBottom="328dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/black"
+        android:text="@string/signin"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tfSignUp"

@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
-    Button btnReport,Reports1;
+    Button btnReport;
+    ImageView lostandFound;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -18,8 +20,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-            Reports1 = findViewById(R.id.Reports1);
-             Reports1.setOnClickListener(this);
+            lostandFound = findViewById(R.id.imageView);
+             lostandFound.setOnClickListener(this);
             btnReport= findViewById(R.id.btnReport);
             btnReport.setOnClickListener(this);
         }
@@ -31,7 +33,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Intent login = new Intent(getApplicationContext(), lostfoundreport.class);
                 startActivity(login);
                 break;
-            case R.id.Reports1:
+            case R.id.imageView:
                 Intent a = new Intent(getApplicationContext(), reports.class);
                 startActivity(a);
                 break;
