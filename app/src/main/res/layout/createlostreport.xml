@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lostreport">
+    android:background="@drawable/lostreport"
+    tools:layout_editor_absoluteX="-19dp"
+    tools:layout_editor_absoluteY="1dp">
 
     <TextView
         android:id="@+id/textView4"
@@ -94,15 +96,16 @@
         android:outlineProvider="background"
         app:layout_constraintBottom_toTopOf="@+id/editTextText3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.321" />
 
     <EditText
         android:id="@+id/editTextText2"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/foredittext"
         android:clipToOutline="true"
         android:ems="10"
@@ -111,14 +114,14 @@
         android:outlineProvider="background"
         app:layout_constraintBottom_toTopOf="@+id/editTextText5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextText5"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/foredittext"
         android:clipToOutline="true"
         android:ems="10"
@@ -127,14 +130,14 @@
         android:outlineProvider="background"
         app:layout_constraintBottom_toTopOf="@+id/editTextText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/foredittext"
         android:clipToOutline="true"
         android:ems="10"
@@ -143,14 +146,14 @@
         android:outlineProvider="background"
         app:layout_constraintBottom_toTopOf="@+id/image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextText3"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/foredittext"
         android:clipToOutline="true"
         android:ems="10"
@@ -159,7 +162,7 @@
         android:outlineProvider="background"
         app:layout_constraintBottom_toTopOf="@+id/editTextText2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

@@ -12,18 +12,19 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class foundreport extends AppCompatActivity implements View.OnClickListener{
-
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Uri imageUri;
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            Uri imageUri = data.getData();
+            imageUri = data.getData();
             ImageView image = findViewById(R.id.image);
             image.setImageURI(imageUri);
         }
     }
-    Button a,b,c,d,image;
-    private static final int PICK_IMAGE_REQUEST = 1;
+    Button a,b,c,d,image,button;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
 //        d= findViewById(R.id.d);
 //        d.setOnClickListener(this);
         image = findViewById(R.id.Image1);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(this);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +70,11 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
             case R.id.d1:
                 Intent b= new Intent (this, lostreport.class);
                 startActivity(b);
+                break;
+            case R.id.button:
+                Intent z= new Intent (this, reports.class);
+                z.setData(imageUri);
+                startActivity(z);
                 break;
         }
     }
