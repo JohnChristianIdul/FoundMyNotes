@@ -15,7 +15,7 @@ public class reports extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.report);
+        setContentView(R.layout.lostreports);
 
     }
 }
