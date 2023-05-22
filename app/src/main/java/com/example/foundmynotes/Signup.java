@@ -38,8 +38,8 @@ public class Signup extends AppCompatActivity {
                 String password_text = password.getText().toString();
                 String confirm_password_text = confirm_password.getText().toString();
 
-                if(!password.equals(confirm_password_text)){
-                    Toast.makeText(Signup.this, "Password do not match", Toast.LENGTH_SHORT).show();
+                if(!password_text.equals(confirm_password_text)){
+                    Toast.makeText(Signup.this, "Password does not match", Toast.LENGTH_SHORT).show();
                     confirm_password.requestFocus();
                     return;
                 }

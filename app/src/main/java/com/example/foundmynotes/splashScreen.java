@@ -7,14 +7,14 @@ import android.os.Bundle;
 
 public class splashScreen extends AppCompatActivity {
 
-    private static final int SPLASH_DELAY = 1000; // 1 second delay
+    private static final int SPLASH_DELAY = 2000; // 2 second delay
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        // Delay for 1 second and then start the main activity
+        // Delay for 2 second and then start the main activity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

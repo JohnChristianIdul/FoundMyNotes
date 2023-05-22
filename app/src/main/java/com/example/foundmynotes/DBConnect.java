@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBConnect extends SQLiteOpenHelper {
 
@@ -71,12 +72,26 @@ public class DBConnect extends SQLiteOpenHelper {
     }
 
     //used for log in
-    public Boolean getUserData(String email, String password){
+//    public Boolean getUserData(String email, String password){
+//        SQLiteDatabase DB = this.getWritableDatabase();
+//        Cursor cursor = DB.rawQuery("select * from user where email_address=? and password =?", new String[] {email, password});
+//        if(cursor.getCount() > 0)
+//            return true;
+//        else
+//            return false;
+//    }
+    public Boolean getUserData(String email, String password) {
         SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("select * from user where email_address=? and password =?", new String[] {email, password});
-        if(cursor.getCount() > 0)
+        Log.d("getUserData", "Email: " + email + " Password: " + password);
+
+        Cursor cursor = DB.rawQuery("SELECT * FROM user WHERE email_address=? AND password =?", new String[]{email, password});
+        if (cursor.getCount() > 0) {
+            Log.d("getUserData", "User data found");
             return true;
-        else
+        } else {
+            Log.d("getUserData", "User data not found");
             return false;
+        }
     }
+
 }
