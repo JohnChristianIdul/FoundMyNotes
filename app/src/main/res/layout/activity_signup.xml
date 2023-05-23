@@ -10,78 +10,83 @@
 
     <EditText
         android:id="@+id/tfemail_address"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="286dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="440dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textPersonName"
         android:paddingLeft="50px"
-        app:layout_constraintBottom_toTopOf="@+id/tfpassword"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfname" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfname"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="246dp"
+        android:layout_marginTop="234dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="492dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         android:paddingLeft="50px"
-        app:layout_constraintBottom_toTopOf="@+id/tfemail_address"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfpassword"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="364dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="50px"
-        app:layout_constraintBottom_toTopOf="@+id/tfconfirmpassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfemail_address" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfconfirmpassword"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="386dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="340dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:paddingLeft="50px"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfpassword" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="437dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="265dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/black"
         android:text="Sign Up"
@@ -89,7 +94,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfconfirmpassword" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tfLogin"
@@ -103,12 +108,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignUp"
-        app:layout_constraintVertical_bias="0.834" />
+        app:layout_constraintVertical_bias="0.92" />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

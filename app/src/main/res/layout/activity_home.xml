@@ -56,24 +56,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="223dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="364dp"
-        android:background="@drawable/roundedrectangle"
-        android:clipToOutline="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/lost_and_found_button"
-        tools:clickable="true" />
-
-    <ImageView
         android:id="@+id/imageView2"
         android:layout_width="151dp"
         android:layout_height="223dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="364dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="476dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,11 +69,24 @@
         tools:clickable="true" />
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="223dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="476dp"
+        android:background="@drawable/roundedrectangle"
+        android:clipToOutline="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/lost_and_found_button"
+        tools:clickable="true" />
+
+    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="151dp"
         android:layout_height="221dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="220dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"

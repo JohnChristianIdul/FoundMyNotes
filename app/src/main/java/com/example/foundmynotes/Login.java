@@ -14,13 +14,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.window.SplashScreen;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
     EditText email, password;
@@ -38,17 +36,19 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.tfemail_address_login);
         password = findViewById(R.id.tf_password_login);
 
+        progressBar = findViewById(R.id.progressBar);
         btnSignIn = findViewById(R.id.btnSignIn);
         signup = findViewById(R.id.tfSignUp);
         remember_me = findViewById(R.id.cbRemember);
 
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox = preferences.getString("remember", "");
+        boolean check = checkbox.equals(true);
 
-        if (checkbox.equals(true)){
+        if (check) {
             Intent i = new Intent(getApplicationContext(), splashScreen.class);
             startActivity(i);
-        }else{
+        } else {
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_SHORT).show();
         }
 
@@ -104,4 +104,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
+
 }
