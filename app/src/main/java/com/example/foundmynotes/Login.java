@@ -1,5 +1,6 @@
 package com.example.foundmynotes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,15 +11,24 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.window.SplashScreen;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
     EditText email, password;
     TextView signup;
     Button btnSignIn;
     CheckBox remember_me;
-    DBConnect DB;
+    FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +41,16 @@ public class Login extends AppCompatActivity {
         btnSignIn = findViewById(R.id.btnSignIn);
         signup = findViewById(R.id.tfSignUp);
         remember_me = findViewById(R.id.cbRemember);
-        DB = new DBConnect(this);
 
-//        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-//        String checkbox = preferences.getString("remember", "");
-//
-//        if (checkbox.equals(true)){
-//            Intent i = new Intent(getApplicationContext(), splashScreen.class);
-//            startActivity(i);
-//        }else{
-//            Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_SHORT).show();
-//        }
+        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String checkbox = preferences.getString("remember", "");
+
+        if (checkbox.equals(true)){
+            Intent i = new Intent(getApplicationContext(), splashScreen.class);
+            startActivity(i);
+        }else{
+            Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_SHORT).show();
+        }
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +65,23 @@ public class Login extends AppCompatActivity {
                 String email_login = email.getText().toString();
                 String password_login = password.getText().toString();
 
-                boolean check = DB.getUserData(email_login, password_login);
-                Toast.makeText(Login.this, "" + check + "", Toast.LENGTH_SHORT).show();
-                if(check){
-                    Intent splash = new Intent(getApplicationContext(), splashScreen.class);
-                    startActivity(splash);
-                }
+                mAuth.signInWithEmailAndPassword(email_login, password_login)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Toast.makeText(Login.this, "Success!",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent Splash = new Intent(getApplicationContext(), splashScreen.class);
+                                    startActivity(Splash);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Toast.makeText(Login.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
 
