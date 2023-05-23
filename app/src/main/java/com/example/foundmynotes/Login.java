@@ -65,23 +65,23 @@ public class Login extends AppCompatActivity {
             }
         });
 
-//        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(remember_me.isChecked()){
-//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember", "true");
-//                    editor.apply();
-//                    Toast.makeText(Login.this, "Checked", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember", "false");
-//                    editor.apply();
-//                    Toast.makeText(Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(remember_me.isChecked()){
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "true");
+                    editor.apply();
+                    Toast.makeText(Login.this, "Checked", Toast.LENGTH_SHORT).show();
+                }else{
+                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("remember", "false");
+                    editor.apply();
+                    Toast.makeText(Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

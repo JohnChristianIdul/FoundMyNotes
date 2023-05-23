@@ -80,6 +80,8 @@ public class DBConnect extends SQLiteOpenHelper {
 //        else
 //            return false;
 //    }
+
+
     public Boolean getUserData(String email, String password) {
         SQLiteDatabase DB = this.getWritableDatabase();
         Log.d("getUserData", "Email: " + email + " Password: " + password);

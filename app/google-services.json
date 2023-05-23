@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755313161354",
+    "project_id": "foundmynotes-login-signup",
+    "storage_bucket": "foundmynotes-login-signup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755313161354:android:6dcbd6bb7833715d2ae973",
+        "android_client_info": {
+          "package_name": "com.example.foundmynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755313161354-9jc3d1238mvmvh25b6q3jhmfbc19inmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDml6jtMhJBbQ0c-DKswhHzBkAm2WUE3M0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755313161354-9jc3d1238mvmvh25b6q3jhmfbc19inmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
