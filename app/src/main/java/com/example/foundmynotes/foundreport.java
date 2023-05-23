@@ -11,14 +11,19 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class foundreport extends AppCompatActivity implements View.OnClickListener{
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;
+    List<Uri> imageUriList = new ArrayList<>();
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
+            imageUriList.add(imageUri);
             ImageView image = findViewById(R.id.image);
             image.setImageURI(imageUri);
         }
@@ -73,7 +78,7 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.button:
                 Intent z= new Intent (this, reports.class);
-                z.setData(imageUri);
+                z.putParcelableArrayListExtra("imageUriList",new ArrayList<>(imageUriList));
                 startActivity(z);
                 break;
         }

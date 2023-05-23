@@ -21,7 +21,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_home);
 
             lostandFound = findViewById(R.id.imageView);
-             lostandFound.setOnClickListener(this);
+            lostandFound.setOnClickListener(this);
+
             btnReport= findViewById(R.id.btnReport);
             btnReport.setOnClickListener(this);
         }
@@ -30,11 +31,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnReport:
-                Intent login = new Intent(getApplicationContext(), lostfoundreport.class);
+                Intent login = new Intent(this, lostfoundreport.class);
                 startActivity(login);
                 break;
             case R.id.imageView:
-                Intent a = new Intent(getApplicationContext(), reports.class);
+                Intent a = new Intent(this, reports.class);
                 startActivity(a);
                 break;
         }
