@@ -18,7 +18,7 @@
             android:exported="false" />
         <activity
             android:name=".reports"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".studyPage"
             android:exported="false" />
@@ -29,7 +29,13 @@
             android:name=".foundreport"
             android:exported="false" />
         <activity
+            android:name=".lostReports"
+            android:exported="false" />
+        <activity
             android:name=".lostreport"
+            android:exported="false" />
+        <activity
+            android:name=".lostfoundreports"
             android:exported="false" />
         <activity
             android:name=".lostfoundreport"

@@ -8,16 +8,6 @@
     android:background="@drawable/home">
 
     <Button
-        android:id="@+id/Reports1"
-        android:layout_width="143dp"
-        android:layout_height="226dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="364dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/btnHome"
         android:layout_width="84dp"
         android:layout_height="90dp"
@@ -59,12 +49,14 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="223dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="364dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
         app:srcCompat="@drawable/lost_and_found_button"
         tools:clickable="true" />
 
@@ -72,12 +64,16 @@
         android:id="@+id/imageView2"
         android:layout_width="151dp"
         android:layout_height="223dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="364dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
         app:srcCompat="@drawable/notes_and_flashcards_button"
         tools:clickable="true" />
 
@@ -85,12 +81,14 @@
         android:id="@+id/imageView3"
         android:layout_width="151dp"
         android:layout_height="221dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="264dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/study_sessions_button"
         tools:clickable="true" />
 

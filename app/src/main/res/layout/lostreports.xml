@@ -8,7 +8,7 @@
     android:backgroundTint="#0065FF">
 
     <LinearLayout
-        android:id="@+id/yourLinearLayoutId"
+        android:id="@+id/yourLinearLayoutId1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -16,14 +16,10 @@
         <!-- LinearLayout contents -->
 
         <ImageView
-            android:id="@+id/back"
+            android:id="@+id/buttons"
             android:layout_width="74dp"
-            android:layout_height="71dp"
-            android:clickable="true"
-            android:contentDescription="back"
-            android:visibility="visible"
-            tools:srcCompat="@drawable/play_store_512"
-            tools:visibility="visible" />
+            android:layout_height="74dp"
+            tools:srcCompat="@drawable/play_store_512" />
 
         <TextView
             android:id="@+id/textView9"
