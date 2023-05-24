@@ -34,7 +34,7 @@ public class notesPage extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        Query query = Utility.getCollectionReferenceForNotes().orderBy("timestamp", Query.Direction.ASCENDING);
+        Query query = Utility.getCollectionReferenceForNotes().orderBy("timestamp", Query.Direction.DESCENDING);
         FirestoreRecyclerOptions<Note> options = new FirestoreRecyclerOptions.Builder<Note>()
                 .setQuery(query, Note.class).build();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

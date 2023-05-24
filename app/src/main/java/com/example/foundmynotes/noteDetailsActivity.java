@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,6 +18,7 @@ public class noteDetailsActivity extends AppCompatActivity {
 
     EditText titleEditText, contentEditText;
     ImageButton btnSaveNote;
+    TextView btnDeleteNote;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +27,12 @@ public class noteDetailsActivity extends AppCompatActivity {
         titleEditText = findViewById(R.id.notes_title_text);
         contentEditText = findViewById(R.id.notes_content_text);
         btnSaveNote = findViewById(R.id.btnSaveNote);
+        btnDeleteNote = findViewById(R.id.delete_note);
 
         btnSaveNote.setOnClickListener( (v)->saveNote());
-
+       // btnDeleteNote.setOnClickListener( (v)->deleteNote());
     }
+
 
     void saveNote(){
         String note_Title = titleEditText.getText().toString();
@@ -63,4 +68,6 @@ public class noteDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

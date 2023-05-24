@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue"
     android:padding="16dp"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".noteDetailsActivity">
 
     <RelativeLayout
@@ -73,17 +74,16 @@
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/deleteNote"
-        android:layout_below="@+id/container_note"
-        android:layout_marginTop="-3sp"
-        android:text="Delete"
+        android:layout_height="30dp"
+        android:id="@+id/delete_note"
+        android:text="Delete Note"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textSize="18sp"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="15sp"
         android:background="@color/orange"
-        />
+        android:visibility="gone"/>
 
 </RelativeLayout>
