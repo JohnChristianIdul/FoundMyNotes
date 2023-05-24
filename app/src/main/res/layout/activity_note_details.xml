@@ -24,7 +24,7 @@
 
         <ImageButton
             android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_height="48dp"
             android:id="@+id/btnSaveNote"
             android:src="@drawable/baseline_done_24"
             android:layout_alignParentEnd="true"
