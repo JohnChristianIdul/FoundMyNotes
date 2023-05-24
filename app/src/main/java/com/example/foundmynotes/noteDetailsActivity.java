@@ -50,7 +50,25 @@ public class noteDetailsActivity extends AppCompatActivity {
         }
 
         btnSaveNote.setOnClickListener( (v)->saveNote());
-       // btnDeleteNote.setOnClickListener( (v)->deleteNote());
+        btnDeleteNote.setOnClickListener( (v)->deleteNoteFromFirebase());
+    }
+
+    private void deleteNoteFromFirebase() {
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForNotes().document();
+
+        documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    //notes is added
+                    Utility.showToast(noteDetailsActivity.this, "Note deleted successfully!");
+                    finish();
+                }else{
+                    Utility.showToast(noteDetailsActivity.this, "Failed to delete the note!");
+                }
+            }
+        });
     }
 
 
