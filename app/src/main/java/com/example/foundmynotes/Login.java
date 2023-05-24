@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -26,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity {
     EditText email, password;
     TextView signup, forgotPassword;
-    Button btnSignIn, btnCancel, btnReset;
+    Button btnSignIn;
     CheckBox remember_me;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
