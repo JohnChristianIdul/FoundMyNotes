@@ -61,6 +61,6 @@ public class noteDetailsActivity extends AppCompatActivity {
                     Utility.showToast(noteDetailsActivity.this, "Failed while adding the note!");
                 }
             }
-        })
+        });
     }
 }
