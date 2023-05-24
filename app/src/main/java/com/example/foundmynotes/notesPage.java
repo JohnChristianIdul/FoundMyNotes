@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.FirestoreRegistrar;
 import com.google.firebase.firestore.Query;
 
 
