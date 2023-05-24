@@ -14,9 +14,10 @@ public class Utility {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
-    static CollectionReference getCollectionReferenceForNotes(){
+    static CollectionReference getCollectionReferenceForNotes() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore.getInstance().collection("notes")
+        return FirebaseFirestore.getInstance().collection("notes")
                 .document(currentUser.getUid()).collection("my_notes");
     }
+
 }
