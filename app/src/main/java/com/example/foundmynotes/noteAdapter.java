@@ -10,12 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.database.core.Context;
 
 public class noteAdapter extends FirestoreRecyclerAdapter <Note, noteAdapter.NoteViewHolder>{
-    Context context;
+    notesPage context;
 
-    public noteAdapter(@NonNull FirestoreRecyclerOptions<Note> options, Context context) {
+    public noteAdapter(@NonNull FirestoreRecyclerOptions<Note> options, notesPage context) {
         super(options);
         this.context = context;
     }
