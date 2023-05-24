@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
     Button btnReport;
-    ImageView imageView;
+    ImageView imageView, imgNotes, imgOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Intent a = new Intent(this, lostfoundreports.class);
                 startActivity(a);
                 break;
+            case R.id.imgNotes:
+            case R.id.imageOver:
+                Intent Notes = new Intent(this, notesPage.class);
+                startActivity(Notes);
+                break;
+
         }
     }
 }
