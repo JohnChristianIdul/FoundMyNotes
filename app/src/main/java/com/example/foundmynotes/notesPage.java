@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.Query;
 
 
@@ -62,5 +65,20 @@ public class notesPage extends AppCompatActivity {
 
     void showMenu(){
         // Display Menu
+        PopupMenu popupMenu  = new PopupMenu(notesPage.this,btnMenu);
+        popupMenu.getMenu().add("Logout");
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if(menuItem.getTitle()=="Logout"){
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(notesPage.this,Login.class));
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 }
