@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,7 +19,9 @@ public class noteDetailsActivity extends AppCompatActivity {
 
     EditText titleEditText, contentEditText;
     ImageButton btnSaveNote;
-    TextView btnDeleteNote;
+    TextView btnDeleteNote, pageTitleTextView;
+    String title, content, docId;
+    boolean isEditMode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,23 @@ public class noteDetailsActivity extends AppCompatActivity {
         contentEditText = findViewById(R.id.notes_content_text);
         btnSaveNote = findViewById(R.id.btnSaveNote);
         btnDeleteNote = findViewById(R.id.delete_note);
+        pageTitleTextView = findViewById(R.id.page_Title);
+
+        title = getIntent().getStringExtra("title");
+        content = getIntent().getStringExtra("content");
+        docId = getIntent().getStringExtra("docId");
+
+        if(docId!=null && !docId.isEmpty()){
+            isEditMode = true;
+        }
+
+        titleEditText.setText(title);
+        contentEditText.setText(content);
+
+        if(isEditMode){
+            pageTitleTextView.setText("Edit your note");
+            btnDeleteNote.setVisibility(View.VISIBLE);
+        }
 
         btnSaveNote.setOnClickListener( (v)->saveNote());
        // btnDeleteNote.setOnClickListener( (v)->deleteNote());
@@ -53,7 +73,13 @@ public class noteDetailsActivity extends AppCompatActivity {
 
     private void saveNoteToFirebase(Note note) {
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNotes().document();
+        if(isEditMode){
+            //update the note
+            documentReference = Utility.getCollectionReferenceForNotes().document(docId);
+        }else{
+            //create new note
+            documentReference = Utility.getCollectionReferenceForNotes().document();
+        }
 
         documentReference.set(note).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
