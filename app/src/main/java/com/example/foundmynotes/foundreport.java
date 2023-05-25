@@ -1,3 +1,4 @@
+//foundreport
 package com.example.foundmynotes;
 
 import android.annotation.SuppressLint;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -83,8 +85,8 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
                 startActivity(a);
                 break;
             case R.id.d1:
-                Intent b = new Intent(this, lostreport.class);
-                startActivity(b);
+//                Intent b = new Intent(this, lostreport.class);
+//                startActivity(b);
                 break;
             case R.id.button:
                 number = findViewById(R.id.number);

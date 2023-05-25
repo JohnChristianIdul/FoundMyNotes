@@ -1,3 +1,4 @@
+//lostReports
 package com.example.foundmynotes;
 
 import android.annotation.SuppressLint;
@@ -5,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
@@ -18,6 +20,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,18 +31,17 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
     Button btnReport;
     private Uri imageUri;
     ImageView back;
-    ArrayList<Uri> imageUriList;
-    ArrayList<String> editTextsList;
-    ArrayList<String> descriptionList;
+    ArrayList<Uri> imageUriList = null;
+    ArrayList<String> editTextsList= null;
+    ArrayList<String> descriptionList= null;
     LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.foundreports);
+        setContentView(R.layout.lostreports);
 
-        linearLayout = findViewById(R.id.yourLinearLayoutId);
+        linearLayout = findViewById(R.id.yourLinearLayoutId1);
         int width = 500;
         int height = 500;
         int leftMargin = 0;
@@ -46,13 +49,26 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
         int rightMargin = 0;
         int bottomMargin = 0;
 
-        back= findViewById(R.id.back);
+        back = findViewById(R.id.buttons);
         back.setOnClickListener(this);
 
+        if(imageUriList != null){
+            retrieveData();
+        }
+
+        imageUriList = new ArrayList<>();
+        editTextsList = new ArrayList<>();
+        descriptionList = new ArrayList<>();
+
+
         Intent intent = getIntent();
-            imageUriList = intent.getParcelableArrayListExtra("imageUriList");
-            editTextsList = intent.getStringArrayListExtra("Number");
-            descriptionList = intent.getStringArrayListExtra("Description");
+//        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
+//        editTextsList = intent.getStringArrayListExtra("Number");
+//        descriptionList = intent.getStringArrayListExtra("Description");
+        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
+        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
+        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
+
         if (imageUriList != null && editTextsList != null && descriptionList != null) {
             ImageView[] imageViews = new ImageView[imageUriList.size()];
             TextView[] editTexts = new TextView[imageUriList.size()];
@@ -73,13 +89,23 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
 
                 editTexts[i].setText(editTextsList.get(i));
                 editTexts[i].setGravity(Gravity.CENTER);
-
                 description[i].setText(descriptionList.get(i));
                 description[i].setGravity(Gravity.CENTER);
 
                 linearLayout.addView(imageViews[i]);
                 linearLayout.addView(editTexts[i]);
                 linearLayout.addView(description[i]);
+
+                editTexts[i].setClickable(true);
+                final int finalI = i; // Required for accessing in the OnClickListener
+                editTexts[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String phoneNumber = (String) editTexts[finalI].getText();
+                        Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", phoneNumber,null));
+                        startActivity(intent1);
+                    }
+                });
                 saveData();
             }
         }
@@ -87,9 +113,9 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.back:
-                Intent intent = new Intent(this, Home.class);
+        switch (view.getId()) {
+            case R.id.buttons:
+                Intent intent = new Intent(this, lostfoundreports.class);
                 startActivity(intent);
                 break;
         }
@@ -119,5 +145,71 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
         editor.apply();
     }
 
-}
+    private void retrieveData() {
+        // Retrieve the saved preferences from SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
+        // Retrieve image URIs
+        Set<String> imageUriSet = preferences.getStringSet("ImageUris", null);
+        ArrayList<Uri> retrievedImageUriList = new ArrayList<>();
+        if (imageUriSet != null) {
+            for (String uriString : imageUriSet) {
+                Uri uri = Uri.parse(uriString);
+                retrievedImageUriList.add(uri);
+            }
+        }
+
+        // Retrieve texts
+        Set<String> textsSet = preferences.getStringSet("Texts", null);
+        ArrayList<String> retrievedTextsList = new ArrayList<>();
+        if (textsSet != null) {
+            retrievedTextsList.addAll(textsSet);
+        }
+
+        // Retrieve descriptions
+        Set<String> descriptionsSet = preferences.getStringSet("Descriptions", null);
+        ArrayList<String> retrievedDescriptionsList = new ArrayList<>();
+        if (descriptionsSet != null) {
+            retrievedDescriptionsList.addAll(descriptionsSet);
+        }
+        int width = 500;
+        int height = 500;
+        int leftMargin = 0;
+        int topMargin = 20;
+        int rightMargin = 0;
+        int bottomMargin = 0;
+        // Use the retrieved data as needed in your application
+        // For example, you can display the images and text in your layout
+
+
+        ImageView[] imageView = new ImageView[retrievedImageUriList.size()];
+        TextView[] textView = new TextView[retrievedImageUriList.size()];
+        TextView[] textViews = new TextView[retrievedImageUriList.size()];
+
+        for (int i = 0; i < retrievedImageUriList.size(); i++) {
+            // Retrieve and display the image
+            imageView[i] = new ImageView(reports.this);
+            textView[i] = new TextView(reports.this);
+            textViews[i] = new TextView(reports.this);
+
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(500, 500);
+            layoutParams.gravity = Gravity.CENTER;
+            layoutParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
+
+            imageView[i].setLayoutParams(layoutParams);
+            imageView[i].setImageURI(retrievedImageUriList.get(i));
+            linearLayout.addView(imageView[i]);
+
+            // Retrieve and display the text
+
+            textView[i].setText(retrievedTextsList.get(i));
+            textView[i].setGravity(Gravity.CENTER);
+            linearLayout.addView(textView[i]);
+
+            // Retrieve and display the description
+            textViews[i].setText(retrievedDescriptionsList.get(i));
+            textViews[i].setGravity(Gravity.CENTER);
+            linearLayout.addView(textViews[i]);
+        }
+    }
+}
