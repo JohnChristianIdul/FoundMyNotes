@@ -115,7 +115,7 @@ public class lostReports extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttons:
-                Intent intent = new Intent(this, lostfoundreports.class);
+                Intent intent = new Intent(this, Home.class);
                 startActivity(intent);
                 break;
         }

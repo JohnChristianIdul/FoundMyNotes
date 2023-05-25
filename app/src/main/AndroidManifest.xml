@@ -44,12 +44,6 @@
             android:name=".lostreport"
             android:exported="false" />
         <activity
-            android:name=".lostfoundreports"
-            android:exported="false" />
-        <activity
-            android:name=".lostfoundreport"
-            android:exported="false" />
-        <activity
             android:name=".splashScreen"
             android:exported="true" />
         <activity

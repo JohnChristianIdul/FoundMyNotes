@@ -37,7 +37,7 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    Button a, b, c, d, image, button;
+    Button  image, button, buttons2;
     EditText number;
     String number1, description1;
     MultiAutoCompleteTextView description;
@@ -48,17 +48,13 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createfoundreport);
 
-        a = findViewById(R.id.a1);
-        a.setOnClickListener(this);
-        b = findViewById(R.id.b1);
-        b.setOnClickListener(this);
-        c = findViewById(R.id.c1);
-        c.setOnClickListener(this);
-        d = findViewById(R.id.d1);
-        d.setOnClickListener(this); // Make sure to define the button with id "d1" in your layout file
         image = findViewById(R.id.Image1);
+
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
+
+        buttons2 = findViewById(R.id.buttons2);
+        buttons2.setOnClickListener(this);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,22 +68,6 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.a1:
-                Intent intent = new Intent(this, Home.class);
-                startActivity(intent);
-                break;
-            case R.id.b1:
-                Intent i = new Intent(this, studyPage.class);
-                startActivity(i);
-                break;
-            case R.id.c1:
-                Intent a = new Intent(this, lostfoundreport.class);
-                startActivity(a);
-                break;
-            case R.id.d1:
-//                Intent b = new Intent(this, lostreport.class);
-//                startActivity(b);
-                break;
             case R.id.button:
                 number = findViewById(R.id.number);
                 number1 = number.getText().toString();
@@ -102,6 +82,10 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
                 z.putExtra("Number", new ArrayList<>(stringList));
                 z.putExtra("Description", new ArrayList<>(descriptionList));
                 startActivity(z);
+                break;
+            case R.id.buttons2:
+                Intent intent = new Intent(this, Home.class);
+                startActivity(intent);
                 break;
         }
     }

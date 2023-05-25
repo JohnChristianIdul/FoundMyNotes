@@ -17,9 +17,10 @@
 
         <ImageView
             android:id="@+id/buttons"
-            android:layout_width="74dp"
-            android:layout_height="74dp"
-            tools:srcCompat="@drawable/play_store_512" />
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/play_store_512" />
 
         <TextView
             android:id="@+id/textView9"
