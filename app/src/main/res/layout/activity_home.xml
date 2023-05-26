@@ -1,108 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home"
+    android:background="@color/blue"
     android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".Home">
 
-    <Button
-        android:id="@+id/btnHome"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="56dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnStudy"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnStudy"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="16dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReport" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp">
 
-    <Button
-        android:id="@+id/btnProfile"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="4dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <!-- First Row -->
+            <TableRow
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/create_lostReport"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/create_lost_report" />
 
-    <ImageView
-        android:id="@+id/imgNotes"
-        android:layout_width="151dp"
-        android:layout_height="223dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/roundedrectangle"
-        android:clipToOutline="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099"
-        app:srcCompat="@drawable/notes_and_flashcards_button"
-        tools:clickable="true" />
+                <ImageButton
+                    android:id="@+id/create_foundReport"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/create_found_report" />
+            </TableRow>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="223dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="36dp"
-        android:background="@drawable/roundedrectangle"
-        android:clipToOutline="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageOver"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101"
-        app:srcCompat="@drawable/lost_and_found_button"
-        tools:clickable="true" />
+            <!-- Second Row -->
+            <TableRow
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/lost_report"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/lost_report" />
 
-    <Button
-        android:id="@+id/btnReport"
-        android:layout_width="84dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="12dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnProfile"
-        app:layout_constraintTop_toBottomOf="@+id/imageOver"
-        app:layout_constraintVertical_bias="0.0" />
+                <ImageButton
+                    android:id="@+id/found_report"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/found_report" />
+            </TableRow>
 
-    <ImageView
-        android:id="@+id/imageOver"
-        android:layout_width="133dp"
-        android:layout_height="76dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/button_container"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="197dp" />
+            <!-- Additional rows can be added here -->
+            <TableRow
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/create_note"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/create_note" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:text="Notes"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageOver"
-        app:layout_constraintTop_toTopOf="@+id/imageOver" />
+                <ImageButton
+                    android:id="@+id/create_reminder"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/create_reminder" />
+            </TableRow>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TableRow
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/open_quote"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/browse_quote" />
+
+                <ImageButton
+                    android:id="@+id/create_task"
+                    android:layout_width="150sp"
+                    android:layout_height="160sp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/create_task" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

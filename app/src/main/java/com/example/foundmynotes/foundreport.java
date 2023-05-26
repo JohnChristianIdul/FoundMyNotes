@@ -53,7 +53,7 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
 
-        buttons2 = findViewById(R.i.buttons2);
+        buttons2 = findViewById(R.id.buttons2);
         buttons2.setOnClickListener(this);
 
         image.setOnClickListener(new View.OnClickListener() {
