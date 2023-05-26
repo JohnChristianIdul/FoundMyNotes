@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
-    Button btnReport;
-    ImageView imageView, imgNotes, imgOver;
+    ImageButton createNotebtn, createReminderbtn, quizbtn, browseQuotebtn, createTaskbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +22,18 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             imageView = findViewById(R.id.imageView);
             imageView.setOnClickListener(this);
 
-            imgNotes = findViewById(R.id.imgNotes);
-            imgNotes.setOnClickListener(this);
-
-            imgOver = findViewById(R.id.imageOver);
-            imgOver.setOnClickListener(this);
-
             btnReport= findViewById(R.id.btnReport);
             btnReport.setOnClickListener(this);
+
+            createNotebtn = findViewById(R.id.create_note);
+            createNotebtn.setOnClickListener(this);
+
+            createReminderbtn = findViewById(R.id.create_reminder);
+            createReminderbtn.setOnClickListener(this);
+
+            quizbtn = findViewById(R.id.quiz)
+                    browseQuotebtn
+                    createTaskbtn
         }
 
     @Override
