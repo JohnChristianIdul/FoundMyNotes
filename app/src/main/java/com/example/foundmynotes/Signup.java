@@ -32,6 +32,7 @@ public class Signup extends AppCompatActivity {
 
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
+
         email = findViewById(R.id.tfemail_address);
         password = findViewById(R.id.tfpassword);
         confirm_password = findViewById(R.id.tfconfirmpassword);
@@ -76,6 +77,8 @@ public class Signup extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     Toast.makeText(Signup.this, "Successfully created.",
                                             Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), splashScreen.class);
+                                    startActivity(intent);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(Signup.this, "Authentication failed.",
@@ -85,6 +88,11 @@ public class Signup extends AppCompatActivity {
                         });
             }
         });
-
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

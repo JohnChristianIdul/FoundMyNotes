@@ -22,6 +22,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             imageView = findViewById(R.id.imageView);
             imageView.setOnClickListener(this);
 
+            imgNotes = findViewById(R.id.imgNotes);
+            imgNotes.setOnClickListener(this);
+
+            imgOver = findViewById(R.id.imageOver);
+            imgOver.setOnClickListener(this);
+
             btnReport= findViewById(R.id.btnReport);
             btnReport.setOnClickListener(this);
         }
@@ -39,8 +45,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.imgNotes:
             case R.id.imageOver:
-                Intent Notes = new Intent(this, notesPage.class);
-                startActivity(Notes);
+                Intent notes = new Intent(this, studyPage.class);
+                startActivity(notes);
                 break;
 
         }

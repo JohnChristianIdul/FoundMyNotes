@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/study"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".studyPage">
 
     <Button
@@ -52,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnReminders"
+        android:id="@+id/btnNoted"
         android:layout_width="267dp"
         android:layout_height="146dp"
         android:layout_marginBottom="348dp"
@@ -61,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
+        app:layout_constraintTop_toBottomOf="@+id/btnReminders" />
 
     <Button
         android:id="@+id/btnFlashCards"
@@ -73,10 +74,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnReminders" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNoted" />
 
     <Button
-        android:id="@+id/btnNotes"
+        android:id="@+id/btnReminders"
         android:layout_width="267dp"
         android:layout_height="146dp"
         android:alpha="0"

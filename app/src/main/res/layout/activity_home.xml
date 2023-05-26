@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".Home">
 
     <Button
@@ -28,15 +29,6 @@
         app:layout_constraintEnd_toStartOf="@+id/btnReport" />
 
     <Button
-        android:id="@+id/btnReport"
-        android:layout_width="84dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="20dp"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnProfile" />
-
-    <Button
         android:id="@+id/btnProfile"
         android:layout_width="84dp"
         android:layout_height="90dp"
@@ -44,21 +36,6 @@
         android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="223dp"
-        android:background="@drawable/roundedrectangle"
-        android:clipToOutline="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149"
-        app:srcCompat="@drawable/lost_and_found_button"
-        tools:clickable="true" />
 
     <ImageView
         android:id="@+id/imgNotes"
@@ -70,48 +47,62 @@
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148"
+        app:layout_constraintVertical_bias="0.099"
         app:srcCompat="@drawable/notes_and_flashcards_button"
         tools:clickable="true" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="151dp"
-        android:layout_height="221dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="209dp"
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/roundedrectangle"
         android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageOver"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/study_sessions_button"
+        app:layout_constraintVertical_bias="0.101"
+        app:srcCompat="@drawable/lost_and_found_button"
         tools:clickable="true" />
+
+    <Button
+        android:id="@+id/btnReport"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="12dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnProfile"
+        app:layout_constraintTop_toBottomOf="@+id/imageOver"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageOver"
-        android:layout_width="117dp"
-        android:layout_height="62dp"
+        android:layout_width="133dp"
+        android:layout_height="76dp"
+        android:clickable="true"
         app:srcCompat="@drawable/button_container"
         tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="231dp"
-        android:clickable="true"/>
+        tools:layout_editor_absoluteY="197dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         android:text="Notes"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="242dp" />
+        app:layout_constraintStart_toStartOf="@+id/imageOver"
+        app:layout_constraintTop_toTopOf="@+id/imageOver" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ public class splashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        // Delay for 2 second and then start the main activity
+        // Delay for 1 second and then start the main activity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

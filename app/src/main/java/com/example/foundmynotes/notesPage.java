@@ -17,10 +17,9 @@ import com.google.firebase.firestore.Query;
 
 
 public class notesPage extends AppCompatActivity {
-
     FloatingActionButton btnAddNote;
     RecyclerView recyclerView;
-    ImageButton btnMenu;
+//    ImageButton btnMenu;
     noteAdapter noteAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +28,10 @@ public class notesPage extends AppCompatActivity {
 
         btnAddNote = findViewById(R.id.btn_AddNote);
         recyclerView = findViewById(R.id.recyclerView);
-        btnMenu = findViewById(R.id.btnMenuNotes);
+//        btnMenu = findViewById(R.id.btnMenuNotes);
 
         btnAddNote.setOnClickListener((v)->startActivity(new Intent(notesPage.this, noteDetailsActivity.class)));
-        btnMenu.setOnClickListener((v)->showMenu());
+//        btnMenu.setOnClickListener((v)->showMenu());
         setupRecyclerView();
     }
 
@@ -63,22 +62,22 @@ public class notesPage extends AppCompatActivity {
         noteAdapter.notifyDataSetChanged();
     }
 
-    void showMenu(){
-        // Display Menu
-        PopupMenu popupMenu  = new PopupMenu(notesPage.this,btnMenu);
-        popupMenu.getMenu().add("Logout");
-        popupMenu.show();
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                if(menuItem.getTitle()=="Logout"){
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(notesPage.this,Login.class));
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-        });
-    }
+//    void showMenu(){
+//        // Display Menu
+//        PopupMenu popupMenu  = new PopupMenu(notesPage.this,btnMenu);
+//        popupMenu.getMenu().add("Logout");
+//        popupMenu.show();
+//        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                if(menuItem.getTitle()=="Logout"){
+//                    FirebaseAuth.getInstance().signOut();
+//                    startActivity(new Intent(notesPage.this,Login.class));
+//                    finish();
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
+//    }
 }

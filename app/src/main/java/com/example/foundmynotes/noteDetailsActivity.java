@@ -55,13 +55,13 @@ public class noteDetailsActivity extends AppCompatActivity {
 
     private void deleteNoteFromFirebase() {
         DocumentReference documentReference;
-        documentReference = Utility.getCollectionReferenceForNotes().document();
+        documentReference = Utility.getCollectionReferenceForNotes().document(docId);
 
         documentReference.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    //notes is added
+                    //note is deleted
                     Utility.showToast(noteDetailsActivity.this, "Note deleted successfully!");
                     finish();
                 }else{
@@ -69,7 +69,9 @@ public class noteDetailsActivity extends AppCompatActivity {
                 }
             }
         });
+        finish();
     }
+
 
 
     void saveNote(){
@@ -87,6 +89,7 @@ public class noteDetailsActivity extends AppCompatActivity {
         note.setTimestamp(Timestamp.now());
 
         saveNoteToFirebase(note);
+        finish();
     }
 
     private void saveNoteToFirebase(Note note) {

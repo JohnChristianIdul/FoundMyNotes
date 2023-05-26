@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sign_up"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     tools:context=".Signup">
 
 
@@ -13,9 +14,9 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="286dp"
+        android:layout_marginTop="254dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="440dp"
+        android:layout_marginBottom="504dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="@string/email"
@@ -25,21 +26,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfpassword"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="324dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="434dp"
         android:background="@drawable/textfield"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="50px"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"
@@ -82,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintVertical_bias="0.678" />
 
     <TextView
         android:id="@+id/tfLogin"
@@ -92,6 +94,7 @@
         android:text="@string/signin"
         android:textColor="@color/black"
         android:textSize="18sp"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

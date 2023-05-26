@@ -37,13 +37,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = findViewById(R.id.tfemail_address_login);
+        email = findViewById(R.id.tf_email_address_login);
         password = findViewById(R.id.tf_password_login);
 
         progressBar = findViewById(R.id.progressBar);
         btnSignIn = findViewById(R.id.btnSignIn);
         signup = findViewById(R.id.tfSignUp);
         remember_me = findViewById(R.id.cbRemember);
+        mAuth = FirebaseAuth.getInstance();
 
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String checkbox = preferences.getString("remember", "");
@@ -64,47 +65,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_forgot_password_page, null);
-                EditText emailBox = dialogView.findViewById(R.id.emailBox);
-                builder.setView(dialogView);
-                AlertDialog dialog = builder.create();
-                dialogView.findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String userEmail = emailBox.getText().toString();
-                        if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
-                            Toast.makeText(Login.this, "Enter your registered email id", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    Toast.makeText(Login.this, "Check your email", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                } else {
-                                    Toast.makeText(Login.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                    }
-                });
-                dialogView.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-                if (dialog.getWindow() != null){
-                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                }
-                dialog.show();
-            }
-        });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,24 +91,25 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(remember_me.isChecked()){
-                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "true");
-                    editor.apply();
-                    Toast.makeText(Login.this, "Checked", Toast.LENGTH_SHORT).show();
-                }else{
-                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remember", "false");
-                    editor.apply();
-                    Toast.makeText(Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
+//        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(remember_me.isChecked()){
+//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remember", "true");
+//                    editor.apply();
+//                    Toast.makeText(Login.this, "Checked", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remember", "false");
+//                    editor.apply();
+//                    Toast.makeText(Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 
 
