@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="reminderDescription" type="id">reminder_description</item>
-    <item name="reminder_date" type="id">date_reminder</item>
-    <item name="reminder_time" type="id">time_reminder</item>
-</resources>

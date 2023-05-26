@@ -19,40 +19,37 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-            imageView = findViewById(R.id.imageView);
-            imageView.setOnClickListener(this);
-
-            btnReport= findViewById(R.id.btnReport);
-            btnReport.setOnClickListener(this);
-
             createNotebtn = findViewById(R.id.create_note);
             createNotebtn.setOnClickListener(this);
 
             createReminderbtn = findViewById(R.id.create_reminder);
             createReminderbtn.setOnClickListener(this);
 
-            quizbtn = findViewById(R.id.quiz)
-                    browseQuotebtn
-                    createTaskbtn
+            quizbtn = findViewById(R.id.open_quiz);
+            quizbtn.setOnClickListener(this);
+
+            browseQuotebtn = findViewById(R.id.open_quote);
+            browseQuotebtn.setOnClickListener(this);
+
+            createTaskbtn = findViewById(R.id.create_task);
+            createTaskbtn.setOnClickListener(this);
         }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btnReport:
-                Intent login = new Intent(this, lostfoundreport.class);
-                startActivity(login);
-                break;
-            case R.id.imageView:
-                Intent a = new Intent(this, lostfoundreports.class);
-                startActivity(a);
-                break;
-            case R.id.imgNotes:
-            case R.id.imageOver:
-                Intent notes = new Intent(this, studyPage.class);
+            case R.id.create_note:
+                Intent notes = new Intent(this, notesPage.class);
                 startActivity(notes);
                 break;
-
+            case R.id.create_reminder:
+                Intent reminders = new Intent(this, RecyclerView_Reminders.class);
+                startActivity(reminders);
+                break;
+//            case R.id.open_quiz:
+//                Intent quiz = new Intent(this, Quiz.class);
+//                startActivity(quiz);
+//                break;
         }
     }
 }
