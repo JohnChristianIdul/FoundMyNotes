@@ -46,10 +46,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Intent reminders = new Intent(this, RecyclerView_Reminders.class);
                 startActivity(reminders);
                 break;
-//            case R.id.open_quiz:
-//                Intent quiz = new Intent(this, Quiz.class);
-//                startActivity(quiz);
-//                break;
+            case R.id.open_quiz:
+                Intent quiz = new Intent(this, Quiz.class);
+                startActivity(quiz);
+                break;
         }
     }
 }
