@@ -14,8 +14,17 @@
         android:theme="@style/Theme.FoundMyNotes"
         tools:targetApi="31">
         <activity
+            android:name=".Quiz"
+            android:exported="false" />
+        <activity
+            android:name=".Quizzes"
+            android:exported="false" />
+        <activity
+            android:name=".QuizMain"
+            android:exported="false" />
+        <activity
             android:name=".Reminder"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".noteDetailsActivity"
             android:exported="false" />

@@ -1,0 +1,8 @@
+com.google.firebase.storage.ktx.BuildConfig
+com.google.firebase.storage.ktx.FirebaseStorageKtxRegistrar
+com.google.firebase.storage.ktx.StorageKt
+com.google.firebase.storage.ktx.StorageKt$taskState$1
+com.google.firebase.storage.ktx.StorageKt$taskState$1$1
+com.google.firebase.storage.ktx.TaskState
+com.google.firebase.storage.ktx.TaskState$InProgress
+com.google.firebase.storage.ktx.TaskState$Paused

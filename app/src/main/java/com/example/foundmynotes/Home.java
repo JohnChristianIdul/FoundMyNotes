@@ -1,11 +1,11 @@
 package com.example.foundmynotes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
     ImageButton createNotebtn, createReminderbtn, quizbtn, browseQuotebtn,found_report, createTaskbtn,lost_report, create_lostReport, create_foundReport;
@@ -22,8 +22,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             createReminderbtn = findViewById(R.id.create_reminder);
             createReminderbtn.setOnClickListener(this);
 
-//            quizbtn = findViewById(R.id.open_quiz);
-//            quizbtn.setOnClickListener(this);
+            quizbtn = findViewById(R.id.open_quiz);
+            quizbtn.setOnClickListener(this);
 
             browseQuotebtn = findViewById(R.id.open_quote);
             browseQuotebtn.setOnClickListener(this);
@@ -31,17 +31,17 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             createTaskbtn = findViewById(R.id.create_task);
             createTaskbtn.setOnClickListener(this);
 
-        create_lostReport = findViewById(R.id.create_lostReport);
-        create_lostReport.setOnClickListener(this);
+            create_lostReport = findViewById(R.id.create_lostReport);
+            create_lostReport.setOnClickListener(this);
 
-        create_foundReport = findViewById(R.id.create_foundReport);
-        create_foundReport.setOnClickListener(this);
+            create_foundReport = findViewById(R.id.create_foundReport);
+            create_foundReport.setOnClickListener(this);
 
-        lost_report = findViewById(R.id.lost_report);
-        lost_report.setOnClickListener(this);
+            lost_report = findViewById(R.id.lost_report);
+            lost_report.setOnClickListener(this);
 
-        found_report = findViewById(R.id.found_report);
-        found_report.setOnClickListener(this);
+            found_report = findViewById(R.id.found_report);
+            found_report.setOnClickListener(this);
         }
 
     @Override
@@ -71,10 +71,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Intent create_lostReport = new Intent(this, lostreport.class);
                 startActivity(create_lostReport);
                 break;
-//            case R.id.open_quiz:
-//                Intent quiz = new Intent(this, Quiz.class);
-//                startActivity(quiz);
-//                break;
+            case R.id.open_quiz:
+                Intent quiz = new Intent(this, Quiz.class);
+                startActivity(quiz);
+                break;
         }
     }
 }
