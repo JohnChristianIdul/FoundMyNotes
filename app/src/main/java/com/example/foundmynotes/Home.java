@@ -52,7 +52,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 startActivity(notes);
                 break;
             case R.id.create_reminder:
-                Intent reminders = new Intent(this, RecyclerView_Reminders.class);
+                Intent reminders = new Intent(this, Reminder.class);
                 startActivity(reminders);
                 break;
             case R.id.found_report:
