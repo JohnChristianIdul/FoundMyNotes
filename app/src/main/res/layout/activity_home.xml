@@ -89,22 +89,6 @@
                     android:src="@drawable/create_task" />
             </TableRow>
 
-            <TableRow
-                android:gravity="center">
-                <ImageButton
-                    android:id="@+id/open_quiz"
-                    android:layout_width="150sp"
-                    android:layout_height="160sp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/create_quiz" />
-
-                <ImageButton
-                    android:layout_width="150sp"
-                    android:layout_height="160sp"
-                    android:alpha="0"
-                    android:scaleType="fitXY" />
-            </TableRow>
-
         </TableLayout>
     </ScrollView>
 

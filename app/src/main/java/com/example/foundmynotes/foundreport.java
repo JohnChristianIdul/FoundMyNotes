@@ -37,12 +37,12 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    Button  image, button, buttons2;
+    Button  image, button;
     EditText number;
     String number1, description1;
     MultiAutoCompleteTextView description;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +53,6 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
 
-        //buttons2 = findViewById(R.id.buttons2);
-        buttons2.setOnClickListener(this);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,10 +81,6 @@ public class foundreport extends AppCompatActivity implements View.OnClickListen
                 z.putExtra("Description", new ArrayList<>(descriptionList));
                 startActivity(z);
                 break;
-//            case R.id.buttons2:
-//                Intent intent = new Intent(this, Home.class);
-//                startActivity(intent);
-//                break;
         }
     }
 }

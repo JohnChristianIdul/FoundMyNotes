@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class reports extends AppCompatActivity implements View.OnClickListener {
+public class reports extends AppCompatActivity{
 
     Button btnReport;
     private Uri imageUri;
@@ -39,18 +39,15 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lostreports);
+        setContentView(R.layout.foundreports);
 
-        linearLayout = findViewById(R.id.yourLinearLayoutId1);
+        linearLayout = findViewById(R.id.yourLinearLayoutId);
         int width = 500;
         int height = 500;
         int leftMargin = 0;
         int topMargin = 20;
         int rightMargin = 0;
         int bottomMargin = 0;
-
-        back = findViewById(R.id.buttons);
-        back.setOnClickListener(this);
 
         if(imageUriList != null){
             retrieveData();
@@ -111,15 +108,6 @@ public class reports extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.buttons:
-                Intent intent = new Intent(this, Home.class);
-                startActivity(intent);
-                break;
-        }
-    }
 
     private void saveData() {
         // Save the image URIs and texts using SharedPreferences

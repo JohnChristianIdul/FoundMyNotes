@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#0065FF"
-    android:backgroundTint="#0065FF">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
     <LinearLayout
-        android:id="@+id/yourLinearLayoutId1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- LinearLayout contents -->
-
         <ImageView
-            android:id="@+id/buttons"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/play_store_512" />
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Lost Items"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            android:textStyle="bold" />
+            android:id="@+id/Number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Number"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Description"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.cardview.widget.CardView>
