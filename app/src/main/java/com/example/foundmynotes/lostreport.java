@@ -51,7 +51,7 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
 
-        buttons2 = findViewById(R.id.buttons2);
+//        buttons2 = findViewById(R.id.buttons2);
         buttons2.setOnClickListener(this);
 
         image.setOnClickListener(new View.OnClickListener() {
@@ -81,10 +81,10 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
                 z.putExtra("Description", new ArrayList<>(descriptionList));
                 startActivity(z);
                 break;
-            case R.id.buttons2:
-                Intent intent = new Intent(this, Home.class);
-                startActivity(intent);
-                break;
+//            case R.id.buttons2:
+//                Intent intent = new Intent(this, Home.class);
+//                startActivity(intent);
+//                break;
         }
     }
 }

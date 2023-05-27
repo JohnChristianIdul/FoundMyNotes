@@ -43,19 +43,8 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         btnSignIn = findViewById(R.id.btnSignIn);
         signup = findViewById(R.id.tfSignUp);
-        remember_me = findViewById(R.id.cbRemember);
         mAuth = FirebaseAuth.getInstance();
 
-        SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-        String checkbox = preferences.getString("remember", "");
-        boolean check = checkbox.equals(true);
-
-        if (check) {
-            Intent i = new Intent(getApplicationContext(), splashScreen.class);
-            startActivity(i);
-        } else {
-            Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_SHORT).show();
-        }
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,26 +80,5 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-//        remember_me.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if(remember_me.isChecked()){
-//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember", "true");
-//                    editor.apply();
-//                    Toast.makeText(Login.this, "Checked", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = preferences.edit();
-//                    editor.putString("remember", "false");
-//                    editor.apply();
-//                    Toast.makeText(Login.this, "Unchecked", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
     }
-
-
 }

@@ -2,13 +2,10 @@ package com.example.foundmynotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
     ImageButton createNotebtn, createReminderbtn, quizbtn, browseQuotebtn, createTaskbtn;
@@ -43,13 +40,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 startActivity(notes);
                 break;
             case R.id.create_reminder:
-                Intent reminders = new Intent(this, RecyclerView_Reminders.class);
+                Intent reminders = new Intent(this, remindersPage.class);
                 startActivity(reminders);
                 break;
-            case R.id.open_quiz:
-                Intent quiz = new Intent(this, Quiz.class);
-                startActivity(quiz);
-                break;
+//            case R.id.open_quiz:
+//                Intent quiz = new Intent(this, Quiz.class);
+//                startActivity(quiz);
+//                break;
         }
     }
 }

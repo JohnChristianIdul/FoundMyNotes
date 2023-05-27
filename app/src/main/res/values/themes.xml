@@ -14,4 +14,20 @@
         <!-- Customize your theme here. -->
         android:theme="@style/"
     </style>
+
+    <!-- Custom style for DatePicker -->
+    <style name="BlueDatePickerStyle" parent="android:Widget.Material.DatePicker">
+        <item name="android:headerBackground">@color/blue</item>
+        <item name="android:calendarTextColor">@color/white</item>
+        <item name="android:datePickerMode">calendar</item>
+    </style>
+
+    <!-- Custom style for TimePicker -->
+    <style name="BlueTimePickerStyle" parent="android:Widget.Material.TimePicker">
+        <item name="android:headerBackground">@color/blue</item>
+        <item name="android:numbersTextColor">@color/white</item>
+        <item name="android:numbersBackgroundColor">@color/blue</item>
+        <item name="android:numbersSelectorColor">@color/blue</item>
+    </style>
+
 </resources>
