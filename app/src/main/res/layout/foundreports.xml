@@ -16,16 +16,6 @@
 
             <!-- LinearLayout contents -->
 
-            <ImageView
-                android:id="@+id/back"
-                android:layout_width="74dp"
-                android:layout_height="74dp"
-                android:clickable="true"
-                android:contentDescription="back"
-                android:visibility="visible"
-                tools:srcCompat="@drawable/play_store_512"
-                tools:visibility="visible" />
-
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"

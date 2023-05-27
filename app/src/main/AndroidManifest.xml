@@ -33,10 +33,10 @@
             android:exported="false" />
         <activity
             android:name=".reports"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".studyPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Home"
             android:exported="true" />
@@ -50,20 +50,14 @@
             android:name=".lostreport"
             android:exported="false" />
         <activity
-            android:name=".lostfoundreports"
-            android:exported="false" />
-        <activity
-            android:name=".lostfoundreport"
-            android:exported="false" />
-        <activity
             android:name=".splashScreen"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Signup"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

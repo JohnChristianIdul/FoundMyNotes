@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "421024111996",
+    "firebase_url": "https://foundmynotes-lostreports-default-rtdb.firebaseio.com",
+    "project_id": "foundmynotes-lostreports",
+    "storage_bucket": "foundmynotes-lostreports.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421024111996:android:5275b27fc0e370bebc58f9",
+        "android_client_info": {
+          "package_name": "com.example.foundmynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqFDkrPBSYnAkWrHVJizWVP3YMoUsXids"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
