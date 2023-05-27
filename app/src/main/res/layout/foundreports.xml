@@ -9,7 +9,7 @@
     android:backgroundTint="#0065FF">
 
         <LinearLayout
-            android:id="@+id/yourLinearLayoutId"
+            android:id="@+id/yourLinearLayoutId1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -25,6 +25,13 @@
                 android:textColor="@color/white"
                 android:textSize="48sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Report"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

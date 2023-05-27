@@ -56,11 +56,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 startActivity(reminders);
                 break;
             case R.id.found_report:
-                Intent found_report = new Intent(this, reports.class);
+                Intent found_report = new Intent(this, Display1.class);
                 startActivity(found_report);
                 break;
             case R.id.lost_report:
-                Intent lost_report = new Intent(this, lostReports.class);
+                Intent lost_report = new Intent(this, Display2.class);
                 startActivity(lost_report);
                 break;
             case R.id.create_foundReport:

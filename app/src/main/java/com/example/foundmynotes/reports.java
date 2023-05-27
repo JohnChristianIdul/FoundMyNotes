@@ -41,7 +41,7 @@ public class reports extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.foundreports);
 
-        linearLayout = findViewById(R.id.yourLinearLayoutId);
+        linearLayout = findViewById(R.id.yourLinearLayoutId1);
         int width = 500;
         int height = 500;
         int leftMargin = 0;
@@ -59,12 +59,12 @@ public class reports extends AppCompatActivity{
 
 
         Intent intent = getIntent();
-//        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
-//        editTextsList = intent.getStringArrayListExtra("Number");
-//        descriptionList = intent.getStringArrayListExtra("Description");
-        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
-        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
-        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
+        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
+        editTextsList = intent.getStringArrayListExtra("Number");
+        descriptionList = intent.getStringArrayListExtra("Description");
+//        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
+//        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
+//        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
 
         if (imageUriList != null && editTextsList != null && descriptionList != null) {
             ImageView[] imageViews = new ImageView[imageUriList.size()];

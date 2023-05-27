@@ -57,7 +57,7 @@
             android:id="@+id/textView6"
             android:layout_width="240dp"
             android:layout_height="81dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="112dp"
             android:text="Create a Lost Report"
             android:textColor="@color/white"
             android:textSize="34sp"
