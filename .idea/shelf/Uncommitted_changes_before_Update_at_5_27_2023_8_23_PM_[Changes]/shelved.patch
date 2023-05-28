@@ -1,0 +1,694 @@
+Index: app/src/main/res/layout/foundreports.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n\r\n\r\n<ScrollView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:background=\"#0065FF\"\r\n    android:backgroundTint=\"#0065FF\">\r\n\r\n        <LinearLayout\r\n            android:id=\"@+id/yourLinearLayoutId\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <!-- LinearLayout contents -->\r\n\r\n            <TextView\r\n                android:id=\"@+id/textView9\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:gravity=\"center\"\r\n                android:text=\"Found Items\"\r\n                android:textColor=\"@color/white\"\r\n                android:textSize=\"48sp\"\r\n                android:textStyle=\"bold\" />\r\n\r\n        </LinearLayout>\r\n\r\n    </ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/foundreports.xml b/app/src/main/res/layout/foundreports.xml
+--- a/app/src/main/res/layout/foundreports.xml	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/res/layout/foundreports.xml	(date 1685188015172)
+@@ -9,7 +9,7 @@
+     android:backgroundTint="#0065FF">
+ 
+         <LinearLayout
+-            android:id="@+id/yourLinearLayoutId"
++            android:id="@+id/yourLinearLayoutId1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+Index: app/src/main/java/com/example/foundmynotes/lostReports.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//lostReports\r\npackage com.example.foundmynotes;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.BitmapFactory;\r\nimport android.graphics.Color;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.util.Base64;\r\nimport android.view.Gravity;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.LinearLayout;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.google.firebase.database.DataSnapshot;\r\nimport com.google.firebase.database.DatabaseError;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.database.ValueEventListener;\r\n\r\nimport org.w3c.dom.Text;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashSet;\r\nimport java.util.List;\r\nimport java.util.Set;\r\n\r\npublic class lostReports extends AppCompatActivity {\r\n    private RecyclerView mRecycleView;\r\n    private imageAdapter mAdapter;\r\n\r\n    private DatabaseReference mDatabaseRef;\r\n    private List<Upload> mUploads;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.imagesactivity);\r\n\r\n            mRecycleView = findViewById(R.id.recycler_View);\r\n            mRecycleView.setHasFixedSize(true);\r\n            mRecycleView.setLayoutManager(new LinearLayoutManager(this));\r\n\r\n            mUploads = new ArrayList<>();\r\n\r\n            mDatabaseRef = FirebaseDatabase.getInstance().getReference(\"Uploads\");\r\n\r\n            mDatabaseRef.addValueEventListener(new ValueEventListener() {\r\n                @Override\r\n                public void onDataChange(@NonNull DataSnapshot snapshot) {\r\n                    for (DataSnapshot postSnapshot : snapshot.getChildren()){\r\n                        Upload upload = postSnapshot.getValue(Upload.class);\r\n                        mUploads.add(upload);\r\n                    }\r\n                    mAdapter = new imageAdapter(lostReports.this, mUploads);\r\n                    mRecycleView.setAdapter(mAdapter);\r\n                }\r\n\r\n                @Override\r\n                public void onCancelled(@NonNull DatabaseError error) {\r\n                    Toast.makeText(lostReports.this, error.getMessage(), Toast.LENGTH_SHORT).show();\r\n\r\n                }\r\n            });\r\n            }\r\n        }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/foundmynotes/lostReports.java b/app/src/main/java/com/example/foundmynotes/lostReports.java
+--- a/app/src/main/java/com/example/foundmynotes/lostReports.java	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/java/com/example/foundmynotes/lostReports.java	(date 1685190214870)
+@@ -17,62 +17,187 @@
+ import android.widget.ImageView;
+ import android.widget.LinearLayout;
+ import android.widget.TextView;
+-import android.widget.Toast;
+ 
+-import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
+-import androidx.recyclerview.widget.LinearLayoutManager;
+-import androidx.recyclerview.widget.RecyclerView;
+-
+-import com.google.firebase.database.DataSnapshot;
+-import com.google.firebase.database.DatabaseError;
+-import com.google.firebase.database.DatabaseReference;
+-import com.google.firebase.database.FirebaseDatabase;
+-import com.google.firebase.database.ValueEventListener;
+ 
+ import org.w3c.dom.Text;
+ 
+ import java.util.ArrayList;
+ import java.util.HashSet;
+-import java.util.List;
+ import java.util.Set;
+ 
+-public class lostReports extends AppCompatActivity {
+-    private RecyclerView mRecycleView;
+-    private imageAdapter mAdapter;
++public class lostReports extends AppCompatActivity{
+ 
+-    private DatabaseReference mDatabaseRef;
+-    private List<Upload> mUploads;
++    Button btnReport;
++    private Uri imageUri;
++    ImageView back;
++    ArrayList<Uri> imageUriList = null;
++    ArrayList<String> editTextsList= null;
++    ArrayList<String> descriptionList= null;
++    LinearLayout linearLayout;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.imagesactivity);
++        setContentView(R.layout.lostreports);
++
++        linearLayout = findViewById(R.id.yourLinearLayoutId);
++        int width = 500;
++        int height = 500;
++        int leftMargin = 0;
++        int topMargin = 20;
++        int rightMargin = 0;
++        int bottomMargin = 0;
+ 
+-            mRecycleView = findViewById(R.id.recycler_View);
+-            mRecycleView.setHasFixedSize(true);
+-            mRecycleView.setLayoutManager(new LinearLayoutManager(this));
++        if(imageUriList != null){
++            retrieveData();
++        }
+ 
+-            mUploads = new ArrayList<>();
++        imageUriList = new ArrayList<>();
++        editTextsList = new ArrayList<>();
++        descriptionList = new ArrayList<>();
+ 
+-            mDatabaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
+ 
+-            mDatabaseRef.addValueEventListener(new ValueEventListener() {
+-                @Override
+-                public void onDataChange(@NonNull DataSnapshot snapshot) {
+-                    for (DataSnapshot postSnapshot : snapshot.getChildren()){
+-                        Upload upload = postSnapshot.getValue(Upload.class);
+-                        mUploads.add(upload);
++        Intent intent = getIntent();
++        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
++        editTextsList = intent.getStringArrayListExtra("Number");
++        descriptionList = intent.getStringArrayListExtra("Description");
++//        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
++//        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
++//        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
++
++        if (imageUriList != null && editTextsList != null && descriptionList != null) {
++            ImageView[] imageViews = new ImageView[imageUriList.size()];
++            TextView[] editTexts = new TextView[imageUriList.size()];
++            TextView[] description = new TextView[imageUriList.size()];
++
++            for (int i = 0; i < imageUriList.size(); i++) {
++                imageViews[i] = new ImageView(lostReports.this);
++                editTexts[i] = new TextView(lostReports.this);
++                description[i] = new TextView(lostReports.this);
++
++                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);
++                layoutParams.gravity = Gravity.CENTER;
++                layoutParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
++
++                imageViews[i].setLayoutParams(layoutParams);
++                imageViews[i].setImageURI(imageUriList.get(i));
++
++
++                editTexts[i].setText(editTextsList.get(i));
++                editTexts[i].setGravity(Gravity.CENTER);
++                description[i].setText(descriptionList.get(i));
++                description[i].setGravity(Gravity.CENTER);
++
++                linearLayout.addView(imageViews[i]);
++                linearLayout.addView(editTexts[i]);
++                linearLayout.addView(description[i]);
++
++                editTexts[i].setClickable(true);
++                final int finalI = i; // Required for accessing in the OnClickListener
++                editTexts[i].setOnClickListener(new View.OnClickListener() {
++                    @Override
++                    public void onClick(View v) {
++                        String phoneNumber = (String) editTexts[finalI].getText();
++                        Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", phoneNumber,null));
++                        startActivity(intent1);
+                     }
+-                    mAdapter = new imageAdapter(lostReports.this, mUploads);
+-                    mRecycleView.setAdapter(mAdapter);
+-                }
++                });
++                saveData();
++            }
++        }
++    }
+ 
+-                @Override
+-                public void onCancelled(@NonNull DatabaseError error) {
+-                    Toast.makeText(lostReports.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+ 
+-                }
+-            });
++    private void saveData() {
++        // Save the image URIs and texts using SharedPreferences
++        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
++        SharedPreferences.Editor editor = preferences.edit();
++
++        // Save image URIs
++        Set<String> imageUriSet = new HashSet<>();
++        for (Uri uri : imageUriList) {
++            imageUriSet.add(uri.toString());
++        }
++        editor.putStringSet("ImageUris", imageUriSet);
++
++        // Save texts
++        Set<String> textsSet = new HashSet<>(editTextsList);
++        editor.putStringSet("Texts", textsSet);
++
++        // Save descriptions
++        Set<String> descriptionsSet = new HashSet<>(descriptionList);
++        editor.putStringSet("Descriptions", descriptionsSet);
++
++        // Commit the changes
++        editor.apply();
++    }
++
++    private void retrieveData() {
++        // Retrieve the saved preferences from SharedPreferences
++        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
++
++        // Retrieve image URIs
++        Set<String> imageUriSet = preferences.getStringSet("ImageUris", null);
++        ArrayList<Uri> retrievedImageUriList = new ArrayList<>();
++        if (imageUriSet != null) {
++            for (String uriString : imageUriSet) {
++                Uri uri = Uri.parse(uriString);
++                retrievedImageUriList.add(uri);
+             }
+         }
++
++        // Retrieve texts
++        Set<String> textsSet = preferences.getStringSet("Texts", null);
++        ArrayList<String> retrievedTextsList = new ArrayList<>();
++        if (textsSet != null) {
++            retrievedTextsList.addAll(textsSet);
++        }
++
++        // Retrieve descriptions
++        Set<String> descriptionsSet = preferences.getStringSet("Descriptions", null);
++        ArrayList<String> retrievedDescriptionsList = new ArrayList<>();
++        if (descriptionsSet != null) {
++            retrievedDescriptionsList.addAll(descriptionsSet);
++        }
++        int width = 500;
++        int height = 500;
++        int leftMargin = 0;
++        int topMargin = 20;
++        int rightMargin = 0;
++        int bottomMargin = 0;
++        // Use the retrieved data as needed in your application
++        // For example, you can display the images and text in your layout
++
++
++        ImageView[] imageView = new ImageView[retrievedImageUriList.size()];
++        TextView[] textView = new TextView[retrievedImageUriList.size()];
++        TextView[] textViews = new TextView[retrievedImageUriList.size()];
++
++        for (int i = 0; i < retrievedImageUriList.size(); i++) {
++            // Retrieve and display the image
++            imageView[i] = new ImageView(lostReports.this);
++            textView[i] = new TextView(lostReports.this);
++            textViews[i] = new TextView(lostReports.this);
++
++            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(500, 500);
++            layoutParams.gravity = Gravity.CENTER;
++            layoutParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
++
++            imageView[i].setLayoutParams(layoutParams);
++            imageView[i].setImageURI(retrievedImageUriList.get(i));
++            linearLayout.addView(imageView[i]);
++
++            // Retrieve and display the text
++
++            textView[i].setText(retrievedTextsList.get(i));
++            textView[i].setGravity(Gravity.CENTER);
++            linearLayout.addView(textView[i]);
++
++            // Retrieve and display the description
++            textViews[i].setText(retrievedDescriptionsList.get(i));
++            textViews[i].setGravity(Gravity.CENTER);
++            linearLayout.addView(textViews[i]);
++        }
++    }
++}
+Index: app/src/main/java/com/example/foundmynotes/reports.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//lostReports\r\npackage com.example.foundmynotes;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.graphics.Bitmap;\r\nimport android.graphics.BitmapFactory;\r\nimport android.graphics.Color;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.util.Base64;\r\nimport android.view.Gravity;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.LinearLayout;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport org.w3c.dom.Text;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.HashSet;\r\nimport java.util.Set;\r\n\r\npublic class reports extends AppCompatActivity{\r\n\r\n    Button btnReport;\r\n    private Uri imageUri;\r\n    ImageView back;\r\n    ArrayList<Uri> imageUriList = null;\r\n    ArrayList<String> editTextsList= null;\r\n    ArrayList<String> descriptionList= null;\r\n    LinearLayout linearLayout;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.foundreports);\r\n\r\n        linearLayout = findViewById(R.id.yourLinearLayoutId);\r\n        int width = 500;\r\n        int height = 500;\r\n        int leftMargin = 0;\r\n        int topMargin = 20;\r\n        int rightMargin = 0;\r\n        int bottomMargin = 0;\r\n\r\n        if(imageUriList != null){\r\n            retrieveData();\r\n        }\r\n\r\n        imageUriList = new ArrayList<>();\r\n        editTextsList = new ArrayList<>();\r\n        descriptionList = new ArrayList<>();\r\n\r\n\r\n        Intent intent = getIntent();\r\n//        imageUriList = intent.getParcelableArrayListExtra(\"imageUriList\");\r\n//        editTextsList = intent.getStringArrayListExtra(\"Number\");\r\n//        descriptionList = intent.getStringArrayListExtra(\"Description\");\r\n        imageUriList.addAll(intent.getParcelableArrayListExtra(\"imageUriList\"));\r\n        editTextsList.addAll(intent.getStringArrayListExtra(\"Number\"));\r\n        descriptionList.addAll(intent.getStringArrayListExtra(\"Description\"));\r\n\r\n        if (imageUriList != null && editTextsList != null && descriptionList != null) {\r\n            ImageView[] imageViews = new ImageView[imageUriList.size()];\r\n            TextView[] editTexts = new TextView[imageUriList.size()];\r\n            TextView[] description = new TextView[imageUriList.size()];\r\n\r\n            for (int i = 0; i < imageUriList.size(); i++) {\r\n                imageViews[i] = new ImageView(reports.this);\r\n                editTexts[i] = new TextView(reports.this);\r\n                description[i] = new TextView(reports.this);\r\n\r\n                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(width, height);\r\n                layoutParams.gravity = Gravity.CENTER;\r\n                layoutParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);\r\n\r\n                imageViews[i].setLayoutParams(layoutParams);\r\n                imageViews[i].setImageURI(imageUriList.get(i));\r\n\r\n\r\n                editTexts[i].setText(editTextsList.get(i));\r\n                editTexts[i].setGravity(Gravity.CENTER);\r\n                description[i].setText(descriptionList.get(i));\r\n                description[i].setGravity(Gravity.CENTER);\r\n\r\n                linearLayout.addView(imageViews[i]);\r\n                linearLayout.addView(editTexts[i]);\r\n                linearLayout.addView(description[i]);\r\n\r\n                editTexts[i].setClickable(true);\r\n                final int finalI = i; // Required for accessing in the OnClickListener\r\n                editTexts[i].setOnClickListener(new View.OnClickListener() {\r\n                    @Override\r\n                    public void onClick(View v) {\r\n                        String phoneNumber = (String) editTexts[finalI].getText();\r\n                        Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.fromParts(\"sms\", phoneNumber,null));\r\n                        startActivity(intent1);\r\n                    }\r\n                });\r\n                saveData();\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    private void saveData() {\r\n        // Save the image URIs and texts using SharedPreferences\r\n        SharedPreferences preferences = getSharedPreferences(\"MyPrefs\", MODE_PRIVATE);\r\n        SharedPreferences.Editor editor = preferences.edit();\r\n\r\n        // Save image URIs\r\n        Set<String> imageUriSet = new HashSet<>();\r\n        for (Uri uri : imageUriList) {\r\n            imageUriSet.add(uri.toString());\r\n        }\r\n        editor.putStringSet(\"ImageUris\", imageUriSet);\r\n\r\n        // Save texts\r\n        Set<String> textsSet = new HashSet<>(editTextsList);\r\n        editor.putStringSet(\"Texts\", textsSet);\r\n\r\n        // Save descriptions\r\n        Set<String> descriptionsSet = new HashSet<>(descriptionList);\r\n        editor.putStringSet(\"Descriptions\", descriptionsSet);\r\n\r\n        // Commit the changes\r\n        editor.apply();\r\n    }\r\n\r\n    private void retrieveData() {\r\n        // Retrieve the saved preferences from SharedPreferences\r\n        SharedPreferences preferences = getSharedPreferences(\"MyPrefs\", MODE_PRIVATE);\r\n\r\n        // Retrieve image URIs\r\n        Set<String> imageUriSet = preferences.getStringSet(\"ImageUris\", null);\r\n        ArrayList<Uri> retrievedImageUriList = new ArrayList<>();\r\n        if (imageUriSet != null) {\r\n            for (String uriString : imageUriSet) {\r\n                Uri uri = Uri.parse(uriString);\r\n                retrievedImageUriList.add(uri);\r\n            }\r\n        }\r\n\r\n        // Retrieve texts\r\n        Set<String> textsSet = preferences.getStringSet(\"Texts\", null);\r\n        ArrayList<String> retrievedTextsList = new ArrayList<>();\r\n        if (textsSet != null) {\r\n            retrievedTextsList.addAll(textsSet);\r\n        }\r\n\r\n        // Retrieve descriptions\r\n        Set<String> descriptionsSet = preferences.getStringSet(\"Descriptions\", null);\r\n        ArrayList<String> retrievedDescriptionsList = new ArrayList<>();\r\n        if (descriptionsSet != null) {\r\n            retrievedDescriptionsList.addAll(descriptionsSet);\r\n        }\r\n        int width = 500;\r\n        int height = 500;\r\n        int leftMargin = 0;\r\n        int topMargin = 20;\r\n        int rightMargin = 0;\r\n        int bottomMargin = 0;\r\n        // Use the retrieved data as needed in your application\r\n        // For example, you can display the images and text in your layout\r\n\r\n\r\n        ImageView[] imageView = new ImageView[retrievedImageUriList.size()];\r\n        TextView[] textView = new TextView[retrievedImageUriList.size()];\r\n        TextView[] textViews = new TextView[retrievedImageUriList.size()];\r\n\r\n        for (int i = 0; i < retrievedImageUriList.size(); i++) {\r\n            // Retrieve and display the image\r\n            imageView[i] = new ImageView(reports.this);\r\n            textView[i] = new TextView(reports.this);\r\n            textViews[i] = new TextView(reports.this);\r\n\r\n            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(500, 500);\r\n            layoutParams.gravity = Gravity.CENTER;\r\n            layoutParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);\r\n\r\n            imageView[i].setLayoutParams(layoutParams);\r\n            imageView[i].setImageURI(retrievedImageUriList.get(i));\r\n            linearLayout.addView(imageView[i]);\r\n\r\n            // Retrieve and display the text\r\n\r\n            textView[i].setText(retrievedTextsList.get(i));\r\n            textView[i].setGravity(Gravity.CENTER);\r\n            linearLayout.addView(textView[i]);\r\n\r\n            // Retrieve and display the description\r\n            textViews[i].setText(retrievedDescriptionsList.get(i));\r\n            textViews[i].setGravity(Gravity.CENTER);\r\n            linearLayout.addView(textViews[i]);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/foundmynotes/reports.java b/app/src/main/java/com/example/foundmynotes/reports.java
+--- a/app/src/main/java/com/example/foundmynotes/reports.java	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/java/com/example/foundmynotes/reports.java	(date 1685190214886)
+@@ -41,7 +41,7 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.foundreports);
+ 
+-        linearLayout = findViewById(R.id.yourLinearLayoutId);
++        linearLayout = findViewById(R.id.yourLinearLayoutId1);
+         int width = 500;
+         int height = 500;
+         int leftMargin = 0;
+@@ -59,12 +59,12 @@
+ 
+ 
+         Intent intent = getIntent();
+-//        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
+-//        editTextsList = intent.getStringArrayListExtra("Number");
+-//        descriptionList = intent.getStringArrayListExtra("Description");
+-        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
+-        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
+-        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
++        imageUriList = intent.getParcelableArrayListExtra("imageUriList");
++        editTextsList = intent.getStringArrayListExtra("Number");
++        descriptionList = intent.getStringArrayListExtra("Description");
++//        imageUriList.addAll(intent.getParcelableArrayListExtra("imageUriList"));
++//        editTextsList.addAll(intent.getStringArrayListExtra("Number"));
++//        descriptionList.addAll(intent.getStringArrayListExtra("Description"));
+ 
+         if (imageUriList != null && editTextsList != null && descriptionList != null) {
+             ImageView[] imageViews = new ImageView[imageUriList.size()];
+Index: app/src/main/res/layout/lostreports.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.cardview.widget.CardView xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:layout_margin=\"8dp\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <ImageView\r\n            android:id=\"@+id/imageView\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"200dp\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/Number\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center_horizontal\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            android:text=\"Number\"\r\n            android:textColor=\"@color/blue\"\r\n            android:textSize=\"20sp\" />\r\n        <TextView\r\n            android:id=\"@+id/Description\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center_horizontal\"\r\n            android:layout_marginTop=\"8dp\"\r\n            android:layout_marginBottom=\"8dp\"\r\n            android:text=\"Description\"\r\n            android:textColor=\"@color/black\"\r\n            android:textSize=\"20sp\" />\r\n\r\n\r\n    </LinearLayout>\r\n\r\n</androidx.cardview.widget.CardView>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/lostreports.xml b/app/src/main/res/layout/lostreports.xml
+--- a/app/src/main/res/layout/lostreports.xml	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/res/layout/lostreports.xml	(date 1685187904467)
+@@ -1,43 +1,36 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:id="@+id/yourLinearLayoutId"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+-    android:layout_height="wrap_content"
+-    android:layout_margin="8dp">
++    android:layout_height="match_parent"
++    android:background="@color/blue"
++    android:orientation="vertical">
+ 
+-    <LinearLayout
++    <TextView
++        android:id="@+id/textView2"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:orientation="vertical">
++        android:gravity="center"
++        android:text="Lost Items"
++        android:textColor="@color/white"
++        android:textSize="48sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
+ 
+-        <ImageView
+-            android:id="@+id/imageView"
+-            android:layout_width="match_parent"
+-            android:layout_height="200dp" />
+-
+-        <TextView
+-            android:id="@+id/Number"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:layout_gravity="center_horizontal"
+-            android:layout_marginTop="8dp"
+-            android:layout_marginBottom="8dp"
+-            android:text="Number"
+-            android:textColor="@color/blue"
+-            android:textSize="20sp" />
+-        <TextView
+-            android:id="@+id/Description"
+-            android:layout_width="wrap_content"
+-            android:layout_height="wrap_content"
+-            android:layout_gravity="center_horizontal"
+-            android:layout_marginTop="8dp"
+-            android:layout_marginBottom="8dp"
+-            android:text="Description"
+-            android:textColor="@color/black"
+-            android:textSize="20sp" />
++    <Button
++        android:id="@+id/createLost"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginBottom="16dp"
++        android:text="Create Report"
++        android:textSize="20sp"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent" />
+ 
+ 
+-    </LinearLayout>
+-
+-</androidx.cardview.widget.CardView>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/foundmynotes/imageAdapter.java
+===================================================================
+diff --git a/app/src/main/java/com/example/foundmynotes/imageAdapter.java b/app/src/main/java/com/example/foundmynotes/imageAdapter.java
+deleted file mode 100644
+--- a/app/src/main/java/com/example/foundmynotes/imageAdapter.java	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ /dev/null	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
+@@ -1,60 +0,0 @@
+-package com.example.foundmynotes;
+-
+-import android.content.Context;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.ImageView;
+-import android.widget.TextView;
+-
+-import androidx.annotation.NonNull;
+-import androidx.recyclerview.widget.RecyclerView;
+-
+-import com.squareup.picasso.Picasso;
+-
+-import java.util.List;
+-
+-public class imageAdapter extends RecyclerView.Adapter<imageAdapter.ImageViewHolder>{
+-    private Context mContext;
+-    private List<Upload> mUploads;
+-
+-    public imageAdapter(Context context, List<Upload> uploads){
+-            mContext = context;
+-            mUploads = uploads;
+-    }
+-    @NonNull
+-    @Override
+-    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+-        View v = LayoutInflater.from(mContext).inflate(R.layout.lostreports, parent, false);
+-        return new ImageViewHolder(v);
+-    }
+-
+-    @Override
+-    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
+-        Upload uploadCurrent = mUploads.get(position);
+-        holder.textViewNumber.setText(uploadCurrent.getmNumber());
+-        Picasso.get()
+-                .load(uploadCurrent.getmImageurl())
+-                .fit()
+-                .centerCrop()
+-                .into(holder.imageView);
+-    }
+-
+-    @Override
+-    public int getItemCount() {
+-        return mUploads.size();
+-    }
+-
+-    public class ImageViewHolder extends RecyclerView.ViewHolder{
+-
+-        public TextView textViewNumber;
+-        public ImageView imageView;
+-        public TextView textViewDescription;
+-        public ImageViewHolder(@NonNull View itemView) {
+-            super(itemView);
+-            textViewNumber = itemView.findViewById(R.id.number);
+-            imageView = itemView.findViewById(R.id.imageView);
+-            textViewDescription = itemView.findViewById(R.id.Description);
+-        }
+-    }
+-}
+Index: app/src/main/res/layout/imagesactivity.xml
+===================================================================
+diff --git a/app/src/main/res/layout/imagesactivity.xml b/app/src/main/res/layout/imagesactivity.xml
+deleted file mode 100644
+--- a/app/src/main/res/layout/imagesactivity.xml	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ /dev/null	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent">
+-
+-    <androidx.recyclerview.widget.RecyclerView
+-        android:id="@+id/recycler_View"
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"/>
+-</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/createlostreport.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@drawable/lostreport\"\r\n    android:theme=\"@style/Theme.MaterialComponents.Light.NoActionBar\"\r\n    tools:layout_editor_absoluteX=\"-19dp\"\r\n    tools:layout_editor_absoluteY=\"1dp\">\r\n\r\n    <androidx.constraintlayout.widget.ConstraintLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/blue\"\r\n        tools:layout_editor_absoluteX=\"7dp\"\r\n        tools:layout_editor_absoluteY=\"2dp\">\r\n\r\n        <Button\r\n            android:id=\"@+id/Image1\"\r\n            android:layout_width=\"201dp\"\r\n            android:layout_height=\"176dp\"\r\n            android:alpha=\"0\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.752\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView10\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"48dp\"\r\n            android:text=\"Contact Number :\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"20sp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.082\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/textView6\" />\r\n\r\n        <ImageView\r\n            android:id=\"@+id/image\"\r\n            android:layout_width=\"275dp\"\r\n            android:layout_height=\"173dp\"\r\n            android:clickable=\"true\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.463\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.747\"\r\n            tools:srcCompat=\"@tools:sample/avatars\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView6\"\r\n            android:layout_width=\"240dp\"\r\n            android:layout_height=\"81dp\"\r\n            android:layout_marginTop=\"116dp\"\r\n            android:text=\"Create a Lost Report\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"34sp\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.122\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView7\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"108dp\"\r\n            android:text=\"Description : \"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"20sp\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.085\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/textView6\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView8\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginBottom=\"364dp\"\r\n            android:text=\"Provide Image : \"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"20sp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.093\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/description\"\r\n            app:layout_constraintVertical_bias=\"0.816\" />\r\n\r\n        <MultiAutoCompleteTextView\r\n            android:id=\"@+id/description\"\r\n            android:layout_width=\"362dp\"\r\n            android:layout_height=\"46dp\"\r\n            android:textSize=\"16sp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.51\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/textView7\"\r\n            app:layout_constraintVertical_bias=\"0.053\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/button\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:backgroundTint=\"#FF9900\"\r\n            android:text=\"Create\"\r\n            android:textSize=\"20sp\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.481\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toBottomOf=\"@+id/Image1\"\r\n            app:layout_constraintVertical_bias=\"0.349\" />\r\n\r\n        <EditText\r\n            android:id=\"@+id/number\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:ems=\"10\"\r\n            android:inputType=\"number\"\r\n            app:layout_constraintBottom_toTopOf=\"@+id/description\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.0\"\r\n            app:layout_constraintStart_toEndOf=\"@+id/textView10\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.747\" />\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView5\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Click Here\"\r\n            android:textColor=\"@color/white\"\r\n            app:layout_constraintBottom_toBottomOf=\"parent\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintHorizontal_bias=\"0.458\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\"\r\n            app:layout_constraintVertical_bias=\"0.696\" />\r\n\r\n    </androidx.constraintlayout.widget.ConstraintLayout>\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/createlostreport.xml b/app/src/main/res/layout/createlostreport.xml
+--- a/app/src/main/res/layout/createlostreport.xml	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/res/layout/createlostreport.xml	(date 1685186738962)
+@@ -57,7 +57,7 @@
+             android:id="@+id/textView6"
+             android:layout_width="240dp"
+             android:layout_height="81dp"
+-            android:layout_marginTop="116dp"
++            android:layout_marginTop="112dp"
+             android:text="Create a Lost Report"
+             android:textColor="@color/white"
+             android:textSize="34sp"
+Index: app/src/main/java/com/example/foundmynotes/lostreport.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//chatgpt\r\n// lostreport.java\r\npackage com.example.foundmynotes;\r\n\r\nimport android.content.ContentResolver;\r\nimport android.content.Intent;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.provider.MediaStore;\r\nimport android.view.View;\r\nimport android.webkit.MimeTypeMap;\r\nimport android.widget.Button;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.MultiAutoCompleteTextView;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\nimport com.google.firebase.database.DatabaseReference;\r\nimport com.google.firebase.database.FirebaseDatabase;\r\nimport com.google.firebase.storage.FirebaseStorage;\r\nimport com.google.firebase.storage.StorageReference;\r\nimport com.google.firebase.storage.StorageTask;\r\nimport com.google.firebase.storage.UploadTask;\r\n\r\npublic class lostreport extends AppCompatActivity implements View.OnClickListener {\r\n    private static final int PICK_IMAGE_REQUEST = 1;\r\n    private Uri mImageUri;\r\n    private StorageReference mStorageRef;\r\n    private DatabaseReference mDatabaseRef;\r\n    private StorageTask mUploadTask;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.createlostreport);\r\n\r\n        Button imageButton = findViewById(R.id.Image1);\r\n        imageButton.setOnClickListener(this);\r\n\r\n        Button uploadButton = findViewById(R.id.button);\r\n        uploadButton.setOnClickListener(this);\r\n\r\n        mStorageRef = FirebaseStorage.getInstance().getReference(\"Uploads\");\r\n        mDatabaseRef = FirebaseDatabase.getInstance().getReference(\"Uploads\");\r\n    }\r\n\r\n    @Override\r\n    public void onClick(View view) {\r\n        switch (view.getId()) {\r\n            case R.id.Image1:\r\n                openFileChooser();\r\n                break;\r\n            case R.id.button:\r\n                if(mUploadTask != null  && mUploadTask.isInProgress()){\r\n                    Toast.makeText(lostreport.this,\"Upload in progress\", Toast.LENGTH_SHORT).show();\r\n                }else {\r\n                    uploadFile();\r\n                }\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void openFileChooser() {\r\n        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);\r\n        startActivityForResult(intent, PICK_IMAGE_REQUEST);\r\n    }\r\n//\r\n    @Override\r\n    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n\r\n        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {\r\n            mImageUri = data.getData();\r\n\r\n            ImageView image = findViewById(R.id.image);\r\n            image.setImageURI(mImageUri);\r\n        }\r\n    }\r\n\r\n    private String getFileExtension(Uri uri) {\r\n        ContentResolver contentResolver = getContentResolver();\r\n        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();\r\n        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));\r\n    }\r\n\r\n    private void uploadFile() {\r\n        if (mImageUri != null) {\r\n            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + \".\" + getFileExtension(mImageUri));\r\n            mUploadTask = fileReference.putFile(mImageUri)\r\n                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {\r\n                        @Override\r\n                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {\r\n                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {\r\n                                @Override\r\n                                public void onSuccess(Uri downloadUri) {\r\n                                    String imageUrl = downloadUri.toString();\r\n\r\n                                    EditText numberEditText = findViewById(R.id.number);\r\n                                    String number = numberEditText.getText().toString().trim();\r\n\r\n                                    MultiAutoCompleteTextView descriptionTextView = findViewById(R.id.description);\r\n                                    String description = descriptionTextView.getText().toString().trim();\r\n\r\n                                    Upload upload = new Upload(imageUrl, number, description);\r\n                                    String uploadId = mDatabaseRef.push().getKey();\r\n                                    mDatabaseRef.child(uploadId).setValue(upload);\r\n\r\n                                    Toast.makeText(lostreport.this, \"Upload successful\", Toast.LENGTH_SHORT).show();\r\n                                }\r\n                            }).addOnFailureListener(new OnFailureListener() {\r\n                                @Override\r\n                                public void onFailure(@NonNull Exception e) {\r\n                                    Toast.makeText(lostreport.this, \"Failed to get download URL\", Toast.LENGTH_SHORT).show();\r\n                                }\r\n                            });\r\n                        }\r\n                    })\r\n                    .addOnFailureListener(new OnFailureListener() {\r\n                        @Override\r\n                        public void onFailure(@NonNull Exception e) {\r\n                            Toast.makeText(lostreport.this, \"Upload failed\", Toast.LENGTH_SHORT).show();\r\n                        }\r\n                    });\r\n        } else {\r\n            Toast.makeText(this, \"No file selected\", Toast.LENGTH_SHORT).show();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/foundmynotes/lostreport.java b/app/src/main/java/com/example/foundmynotes/lostreport.java
+--- a/app/src/main/java/com/example/foundmynotes/lostreport.java	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/java/com/example/foundmynotes/lostreport.java	(date 1685189017294)
+@@ -1,134 +1,86 @@
+-//chatgpt
+-// lostreport.java
++//foundreport
+ package com.example.foundmynotes;
+ 
+-import android.content.ContentResolver;
++import android.annotation.SuppressLint;
+ import android.content.Intent;
+-import android.net.Uri;
++import android.content.SharedPreferences;
+ import android.os.Bundle;
+ import android.provider.MediaStore;
+ import android.view.View;
+-import android.webkit.MimeTypeMap;
+ import android.widget.Button;
++import android.net.Uri;
+ import android.widget.EditText;
+ import android.widget.ImageView;
+ import android.widget.MultiAutoCompleteTextView;
+ import android.widget.Toast;
+ 
+-import androidx.annotation.NonNull;
+-import androidx.annotation.Nullable;
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+-import com.google.android.gms.tasks.OnFailureListener;
+-import com.google.android.gms.tasks.OnSuccessListener;
+-import com.google.firebase.database.DatabaseReference;
+-import com.google.firebase.database.FirebaseDatabase;
+-import com.google.firebase.storage.FirebaseStorage;
+-import com.google.firebase.storage.StorageReference;
+-import com.google.firebase.storage.StorageTask;
+-import com.google.firebase.storage.UploadTask;
++import java.util.ArrayList;
++import java.util.List;
+ 
+ public class lostreport extends AppCompatActivity implements View.OnClickListener {
+     private static final int PICK_IMAGE_REQUEST = 1;
+-    private Uri mImageUri;
+-    private StorageReference mStorageRef;
+-    private DatabaseReference mDatabaseRef;
+-    private StorageTask mUploadTask;
++    private Uri imageUri;
++    List<Uri> imageUriList = new ArrayList<>();
++    List<String> stringList = new ArrayList<>();
++    List<String> descriptionList = new ArrayList<>();
++
++    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
+ 
++        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
++            imageUri = data.getData();
++            imageUriList.add(imageUri);
++            ImageView image = findViewById(R.id.image);
++            image.setImageURI(imageUri);
++        }
++    }
++
++    Button  image, button;
++    EditText number;
++    String number1, description1;
++    MultiAutoCompleteTextView description;
++
++    @SuppressLint({"MissingInflatedId", "WrongViewCast"})
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.createlostreport);
++        setContentView(R.layout.createfoundreport);
+ 
+-        Button imageButton = findViewById(R.id.Image1);
+-        imageButton.setOnClickListener(this);
++        image = findViewById(R.id.Image1);
+ 
+-        Button uploadButton = findViewById(R.id.button);
+-        uploadButton.setOnClickListener(this);
++        button = findViewById(R.id.button);
++        button.setOnClickListener(this);
+ 
+-        mStorageRef = FirebaseStorage.getInstance().getReference("Uploads");
+-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("Uploads");
++
++        image.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                Intent intent1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
++                startActivityForResult(intent1, PICK_IMAGE_REQUEST);
++            }
++        });
+     }
+ 
+     @Override
+     public void onClick(View view) {
+         switch (view.getId()) {
+-            case R.id.Image1:
+-                openFileChooser();
+-                break;
+             case R.id.button:
+-                if(mUploadTask != null  && mUploadTask.isInProgress()){
+-                    Toast.makeText(lostreport.this,"Upload in progress", Toast.LENGTH_SHORT).show();
+-                }else {
+-                    uploadFile();
+-                }
++                number = findViewById(R.id.number);
++                number1 = number.getText().toString();
++                description = findViewById(R.id.description);
++                description1 = description.getText().toString();
++
++                descriptionList.add(description1);
++                stringList.add(number1);
++
++                Intent z = new Intent(this, reports.class);
++                z.putParcelableArrayListExtra("imageUriList", new ArrayList<>(imageUriList));
++                z.putExtra("Number", new ArrayList<>(stringList));
++                z.putExtra("Description", new ArrayList<>(descriptionList));
++                startActivity(z);
+                 break;
+         }
+     }
+-
+-    private void openFileChooser() {
+-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+-    }
+-//
+-    @Override
+-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+-        super.onActivityResult(requestCode, resultCode, data);
+-
+-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+-            mImageUri = data.getData();
+-
+-            ImageView image = findViewById(R.id.image);
+-            image.setImageURI(mImageUri);
+-        }
+-    }
+-
+-    private String getFileExtension(Uri uri) {
+-        ContentResolver contentResolver = getContentResolver();
+-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+-    }
+-
+-    private void uploadFile() {
+-        if (mImageUri != null) {
+-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+-            mUploadTask = fileReference.putFile(mImageUri)
+-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+-                        @Override
+-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+-                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+-                                @Override
+-                                public void onSuccess(Uri downloadUri) {
+-                                    String imageUrl = downloadUri.toString();
+-
+-                                    EditText numberEditText = findViewById(R.id.number);
+-                                    String number = numberEditText.getText().toString().trim();
+-
+-                                    MultiAutoCompleteTextView descriptionTextView = findViewById(R.id.description);
+-                                    String description = descriptionTextView.getText().toString().trim();
+-
+-                                    Upload upload = new Upload(imageUrl, number, description);
+-                                    String uploadId = mDatabaseRef.push().getKey();
+-                                    mDatabaseRef.child(uploadId).setValue(upload);
+-
+-                                    Toast.makeText(lostreport.this, "Upload successful", Toast.LENGTH_SHORT).show();
+-                                }
+-                            }).addOnFailureListener(new OnFailureListener() {
+-                                @Override
+-                                public void onFailure(@NonNull Exception e) {
+-                                    Toast.makeText(lostreport.this, "Failed to get download URL", Toast.LENGTH_SHORT).show();
+-                                }
+-                            });
+-                        }
+-                    })
+-                    .addOnFailureListener(new OnFailureListener() {
+-                        @Override
+-                        public void onFailure(@NonNull Exception e) {
+-                            Toast.makeText(lostreport.this, "Upload failed", Toast.LENGTH_SHORT).show();
+-                        }
+-                    });
+-        } else {
+-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+-        }
+-    }
+-}
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.FoundMyNotes\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".Reminder\"\r\n            android:exported=\"false\"/>\r\n        <activity\r\n            android:name=\".noteDetailsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".notesPage\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".reports\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Home\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".foundreport\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".lostReports\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".lostreport\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".splashScreen\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Signup\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Login\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 56a46698ef92d2a8198bc9b2ce0cc9e28c0f9a36)
++++ b/app/src/main/AndroidManifest.xml	(date 1685186214722)
+@@ -27,7 +27,7 @@
+             android:exported="false" />
+         <activity
+             android:name=".Home"
+-            android:exported="false" />
++            android:exported="true" />
+         <activity
+             android:name=".foundreport"
+             android:exported="false" />
