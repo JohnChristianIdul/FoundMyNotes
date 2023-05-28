@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class lostReports extends AppCompatActivity{
+public class lostReports extends AppCompatActivity implements View.OnClickListener {
 
     Button btnReport;
     private Uri imageUri;
@@ -35,12 +35,15 @@ public class lostReports extends AppCompatActivity{
     ArrayList<String> editTextsList= null;
     ArrayList<String> descriptionList= null;
     LinearLayout linearLayout;
+    Button createLost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lostreports);
 
+        createLost = findViewById(R.id.createLost);
+        createLost.setOnClickListener(this);
         linearLayout = findViewById(R.id.yourLinearLayoutId);
         int width = 500;
         int height = 500;
@@ -198,6 +201,15 @@ public class lostReports extends AppCompatActivity{
             textViews[i].setText(retrievedDescriptionsList.get(i));
             textViews[i].setGravity(Gravity.CENTER);
             linearLayout.addView(textViews[i]);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.createLost:
+                Intent intent = new Intent(this, lostreport.class);
+                startActivity(intent);
         }
     }
 }

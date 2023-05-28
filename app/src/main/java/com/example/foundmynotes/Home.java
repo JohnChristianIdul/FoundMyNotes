@@ -1,15 +1,26 @@
 package com.example.foundmynotes;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Home extends AppCompatActivity implements View.OnClickListener {
-    ImageButton createNotebtn, createReminderbtn, quizbtn, browseQuotebtn,found_report, createTaskbtn,lost_report, create_lostReport, create_foundReport;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Home extends AppCompatActivity implements View.OnClickListener {
+    ImageButton  createNotebtn, createReminderbtn, quizbtn, browseQuotebtn,found_report, createTaskbtn,lost_report, create_lostReport, create_foundReport;
+    Button deleteAccountbtn;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -18,6 +29,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
             createNotebtn = findViewById(R.id.create_note);
             createNotebtn.setOnClickListener(this);
+
+            deleteAccountbtn = findViewById(R.id.delete_account);
+            deleteAccountbtn.setOnClickListener(this);
 
             createReminderbtn = findViewById(R.id.create_reminder);
             createReminderbtn.setOnClickListener(this);
@@ -56,11 +70,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 startActivity(reminders);
                 break;
             case R.id.found_report:
-                Intent found_report = new Intent(this, Display1.class);
+                Intent found_report = new Intent(this, reports.class);
                 startActivity(found_report);
                 break;
             case R.id.lost_report:
-                Intent lost_report = new Intent(this, Display2.class);
+                Intent lost_report = new Intent(this, lostReports.class);
                 startActivity(lost_report);
                 break;
             case R.id.create_foundReport:
@@ -75,6 +89,34 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
                 Intent quiz = new Intent(this, Quiz.class);
                 startActivity(quiz);
                 break;
+            case R.id.delete_account:
+                deleteAccount();
+                break;
         }
     }
+
+    private void deleteAccount(){
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        if (user != null) {
+            user.delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            // User account deleted successfully
+                            Toast.makeText(Home.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
+                            Intent delAccount= new Intent(Home.this, Login.class);
+                            startActivity(delAccount);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Failed to delete user account
+                        }
+                    });
+        }
+    }
+
 }

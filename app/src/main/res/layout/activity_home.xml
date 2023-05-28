@@ -9,7 +9,6 @@
     tools:context=".Home">
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -91,6 +90,7 @@
 
             <TableRow
                 android:gravity="center">
+
                 <ImageButton
                     android:id="@+id/open_quiz"
                     android:layout_width="150sp"
@@ -98,9 +98,11 @@
                     android:scaleType="fitXY"
                     android:src="@drawable/create_quiz" />
 
-                <ImageButton
-                    android:layout_width="150sp"
-                    android:alpha="0" />
+                <Button
+                    android:id="@+id/delete_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete Account" />
             </TableRow>
 
         </TableLayout>

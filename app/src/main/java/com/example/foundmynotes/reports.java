@@ -4,29 +4,22 @@ package com.example.foundmynotes;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class reports extends AppCompatActivity{
+public class reports extends AppCompatActivity implements View.OnClickListener {
 
     Button btnReport;
     private Uri imageUri;
@@ -35,12 +28,15 @@ public class reports extends AppCompatActivity{
     ArrayList<String> editTextsList= null;
     ArrayList<String> descriptionList= null;
     LinearLayout linearLayout;
-
+    Button createFound;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.foundreports);
 
+        createFound = findViewById(R.id.createFoundReport);
+        createFound.setOnClickListener(this);
         linearLayout = findViewById(R.id.yourLinearLayoutId1);
         int width = 500;
         int height = 500;
@@ -198,6 +194,15 @@ public class reports extends AppCompatActivity{
             textViews[i].setText(retrievedDescriptionsList.get(i));
             textViews[i].setGravity(Gravity.CENTER);
             linearLayout.addView(textViews[i]);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.createFoundReport:
+                Intent createFound = new Intent(this, foundreport.class);
+                startActivity(createFound);
         }
     }
 }

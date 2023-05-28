@@ -41,9 +41,10 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
+            android:contentDescription="Choco Lanay"
             android:maxWidth="500dp"
             android:maxHeight="500dp"
-            tools:srcCompat="@drawable/_44764177_1636235410198680_5120170127519864754_n" />
+            tools:srcCompat="@drawable/chocolanay" />
 
         <TextView
             android:id="@+id/textView4"

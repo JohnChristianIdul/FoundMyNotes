@@ -75,7 +75,7 @@ public class lostreport extends AppCompatActivity implements View.OnClickListene
                 descriptionList.add(description1);
                 stringList.add(number1);
 
-                Intent z = new Intent(this, reports.class);
+                Intent z = new Intent(this, lostReports.class);
                 z.putParcelableArrayListExtra("imageUriList", new ArrayList<>(imageUriList));
                 z.putExtra("Number", new ArrayList<>(stringList));
                 z.putExtra("Description", new ArrayList<>(descriptionList));
