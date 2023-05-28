@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
     ImageButton  createNotebtn, createReminderbtn, quizbtn, browseQuotebtn,found_report, createTaskbtn,lost_report, create_lostReport, create_foundReport;
@@ -40,7 +39,13 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             quizbtn.setOnClickListener(this);
 
             browseQuotebtn = findViewById(R.id.open_quote);
-            browseQuotebtn.setOnClickListener(this);
+            browseQuotebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent quote = new Intent(getApplicationContext(), open_quote.class);
+                    startActivity(quote);
+                }
+            });
 
             createTaskbtn = findViewById(R.id.create_task);
             createTaskbtn.setOnClickListener(this);
@@ -88,6 +93,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             case R.id.open_quiz:
                 Intent quiz = new Intent(this, Quiz.class);
                 startActivity(quiz);
+                break;
+            case R.id.create_task:
+                Intent task = new Intent(this, main_task.class);
+                startActivity(task);
                 break;
             case R.id.delete_account:
                 deleteAccount();
