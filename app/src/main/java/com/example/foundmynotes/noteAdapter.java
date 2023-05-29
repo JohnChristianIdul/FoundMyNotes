@@ -2,7 +2,6 @@ package com.example.foundmynotes;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import io.grpc.okhttp.internal.Util;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class noteAdapter extends FirestoreRecyclerAdapter<Note, noteAdapter.NoteViewHolder> {
     Context context;
@@ -57,4 +59,11 @@ public class noteAdapter extends FirestoreRecyclerAdapter<Note, noteAdapter.Note
             timestampView = itemView.findViewById(R.id.time_stamp);
         }
     }
+
+    // Inside the noteAdapter class
+    public void deleteItem(int position) {
+        getSnapshots().getSnapshot(position).getReference().delete();
+        notifyItemRemoved(position);
+    }
+
 }
