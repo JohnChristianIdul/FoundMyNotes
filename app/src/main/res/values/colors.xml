@@ -16,4 +16,9 @@
     <color name="mediumEmphasisTextColor">#99000000</color>
     <color name="highEmphasisTextColor">#de000000</color>
     <color name="black_overlay">#66000000</color>
+
+    <color name="back_color">#13253D</color>
+    <color name="bot_back_color">#203757</color>
+    <color name="user_back_color">6965FF</color>
+    <color name="fab_color">#6BAFF</color>
 </resources>

@@ -38,23 +38,6 @@ public class notesPage extends AppCompatActivity {
         btnAddNote.setOnClickListener((v)->startActivity(new Intent(notesPage.this, noteDetailsActivity.class)));
 //        btnMenu.setOnClickListener((v)->showMenu());
         setupRecyclerView();
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                ItemTouchHelper.UP | ItemTouchHelper.DOWN,
-                        ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT
-        ){
-
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                Collections.swap(noteAdapter.getSnapshots(), viewHolder.getAdapterPosition(),target.getAdapterPosition());
-                noteAdapter.notifyItemMoved(viewHolder.getAdapterPosition(), target.getAdapterPosition());
-                return true;
-            }
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                if (direction == ItemTouchHelper.LEFT) {
-                    noteAdapter.deleteItem(position);
-                }
 //                else {
 //                    // Get the item from the dataset at the swiped position
 //                    Note swipedItem = noteAdapter.getSnapshots().get(position);
@@ -72,10 +55,6 @@ public class notesPage extends AppCompatActivity {
 //                    // Notify the adapter about the item changes
 //                    noteAdapter.notifyItemMoved(position, 0);
 //                } // crashes
-
-            }
-        });
-        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void setupRecyclerView() {
