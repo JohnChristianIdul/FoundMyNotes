@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class main_task extends AppCompatActivity implements DialogCloseListener{
+public class main_task extends AppCompatActivity implements DialogCloseListener {
 
     private DatabaseHandler db;
 
@@ -36,19 +36,15 @@ public class main_task extends AppCompatActivity implements DialogCloseListener{
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new ToDoAdapter(db,this);
+        tasksAdapter = new ToDoAdapter(db, this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
-        ItemTouchHelper itemTouchHelper = new
-                ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
 
         fab = findViewById(R.id.fab);
 
-        taskList = db.getAllTasks();
-        Collections.reverse(taskList);
-
-        tasksAdapter.setTasks(taskList);
+        loadTasks();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +54,15 @@ public class main_task extends AppCompatActivity implements DialogCloseListener{
         });
     }
 
-    @Override
-    public void handleDialogClose(DialogInterface dialog){
+    private void loadTasks() {
         taskList = db.getAllTasks();
         Collections.reverse(taskList);
         tasksAdapter.setTasks(taskList);
+    }
+
+    @Override
+    public void handleDialogClose(DialogInterface dialog) {
+        loadTasks();
         tasksAdapter.notifyDataSetChanged();
     }
 }

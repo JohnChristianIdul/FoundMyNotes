@@ -1,5 +1,6 @@
 package com.example.foundmynotes;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -28,7 +29,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TODO_TABLE);
+        try{
+            db.execSQL(CREATE_TODO_TABLE);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -50,6 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TODO_TABLE, null, cv);
     }
 
+    @SuppressLint("Range")
     public List<ToDoModel> getAllTasks(){
         List<ToDoModel> taskList = new ArrayList<>();
         Cursor cur = null;
